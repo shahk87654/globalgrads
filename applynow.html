@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now - Globalgrads Consulting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    :root {
+    --primary-blue: #0b5394;
+    --light-blue: #4a86e8;
+    --lighter-blue: #c9daf8;
+    --dark-blue: #073763;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 40px !important;
+    gap: 10px !important;
+}
+
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 300px !important;
+    width: auto !important;
+    display: block;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* Query Button */
+.query-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.query-btn:hover {
+    background-color: var(--dark-blue);
+}
+
+/* Apply Section Styles */
+.apply-section {
+    padding: 120px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-title {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 40px;
+}
+
+.form-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.form-title p {
+    color: #666;
+}
+
+.application-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-about {
+    grid-column: span 1;
+}
+
+.footer-logo {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.footer-heading {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--light-blue);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-links a i {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+ header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+       .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 40px !important;
+  gap: 10px !important;
+}
+
+/* =======================
+   LOGO
+========================== */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 300px !important;
+  width: auto !important;
+  display: block;
+}
+
+
+/* =======================
+   NAVIGATION LINKS
+========================== */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .query-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        
+        .query-btn:hover {
+            background-color: var(--dark-blue);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+.submit-btn {
+            background: #0b5394;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #073763;
+        }
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block !important;
+        z-index: 1001;
+        color: #333;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .query-btn {
+        display: none;
+    }
+
+    .navbar {
+        padding: 15px;
+    }
+
+    .navbar .logo img {
+        max-height: 190px !important;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    
+     <header id="header">
+        
+        <div class="container">
+            <nav class="navbar">
+                <div class="mobile-back-btn">
+        <a href="javascript:history.back()">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back</span> <!-- Hidden on mobile -->
+        </a>
+  </div>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo (3).png" alt="Global Grads Logo">
+                        
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="teams.html">Team</a></li>
+                    <li><a href="studydestinations.html">Study Destinations</a></li>
+                    <li><a href="scholarships.html">Scholarships</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Apply Now Section -->
+    <section class="apply-section">
+        <div class="form-title">
+            <h1>Apply Now</h1>
+            <p>Fill out the form below to start your journey with Globalgrads</p>
+        </div>
+
+        <form class="application-form">
+            <!-- Personal Information -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- Educational Background -->
+            <div class="form-group">
+                <label for="education">Highest Education Level *</label>
+                <select id="education" class="form-control" required>
+                    <option value="">Select Education Level</option>
+                    <option value="high-school">High School</option>
+                    <option value="bachelors">Bachelor's Degree</option>
+                    <option value="masters">Master's Degree</option>
+                    <option value="phd">PhD</option>
+                </select>
+            </div>
+
+            <!-- Study Preferences -->
+            <!-- Study Preferences -->
+<div class="form-row">
+    <div class="form-group">
+        <label for="country">Preferred Country *</label>
+        <select id="country" class="form-control" required>
+            <option value="">Select Country</option>
+            <option value="usa">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="canada">Canada</option>
+            <option value="australia">Australia</option>
+            <option value="ireland">Ireland</option>
+            <option value="wales">Wales</option>
+            <option value="europe">Europe</option>
+            <option value="france">France</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="course">Intended Course *</label>
+        <input type="text" id="course" class="form-control" required>
+    </div>
+</div>
+
+                </div>
+                <div class="form-group">
+                    <label for="course">Intended Course *</label>
+                    <input type="text" id="course" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="form-group">
+                <label for="message">Additional Information</label>
+                <textarea id="message" class="form-control" rows="4"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </section>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <a href="index.html">
+                    <img src="wl.jpeg" alt="Edify Consulting Logo" class="footer-logo">
+                </a>
+                <p>Globalgrads Consulting helps students achieve their academic and career aspirations with expert guidance in university admissions, course selection, and visa applications.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links-column">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="studydestinations.html"><i class="fas fa-chevron-right"></i> Study Destinations</a></li>
+                   
+                </ul>
+            </div>
+            
+            <div class="footer-links-column">
+                <h4 class="footer-heading">Study Destinations</h4>
+                <ul class="footer-links">
+                     <li><a href="france.html"><i class="fas fa-chevron-right"></i> France</a></li>
+                        <li><a href="usa.html"><i class="fas fa-chevron-right"></i> United States</a></li>
+                        <li><a href="uk.html"><i class="fas fa-chevron-right"></i> United Kingdom</a></li>
+                        <li><a href="canada.html"><i class="fas fa-chevron-right"></i> Canada</a></li>
+                        <li><a href="australia.html"><i class="fas fa-chevron-right"></i> Australia</a></li>
+                        <li><a href="ireland.html"><i class="fas fa-chevron-right"></i> Ireland</a></li>
+                        <li><a href="wales.html"><i class="fas fa-chevron-right"></i> Wales</a></li>
+                                            <li><a href="europe.html"><i class="fas fa-chevron-right"></i> Europe</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4 class="footer-heading">Contact Us</h4>
+                <div class="contact-info-footer">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>123 Education Street, Suite 101<br>Academic City, ED 12345</div>
+                </div>
+                <div class="contact-info-footer">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>+92 3004074318</div>
+                </div>
+                <div class="contact-info-footer">
+                    <i class="fas fa-envelope"></i>
+                    <div>info@Globalgrads.com</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Globalgrads Consulting. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923004074318" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const menuIcon = menuToggle.querySelector('i');
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+        }
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+            }
+        });
+    });
+</script>
+
