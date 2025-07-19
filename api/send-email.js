@@ -1,12 +1,12 @@
 const nodemailer = require("nodemailer");
 
 module.exports = async (req, res) => {
-  // ✅ CORS headers (required for all requests)
-  res.setHeader("Access-Control-Allow-Origin", "https://www.globalgrads.us");
+  // Set CORS headers for all requests
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // ✅ Handle preflight OPTIONS request
+  // Handle preflight (OPTIONS) request
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
@@ -14,7 +14,6 @@ module.exports = async (req, res) => {
   if (req.method === "POST") {
     const { name, email, subject, message } = req.body;
 
-    // Create a transporter object using the Gmail SMTP service
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -23,7 +22,6 @@ module.exports = async (req, res) => {
       },
     });
 
-    // Email options
     const mailOptions = {
       from: email,
       to: process.env.GMAIL_USER,
@@ -37,16 +35,12 @@ module.exports = async (req, res) => {
 
     try {
       await transporter.sendMail(mailOptions);
-      return res
-        .status(200)
-        .json({ success: true, message: "Email sent successfully!" });
+      res.status(200).json({ success: true, message: "Email sent successfully!" });
     } catch (error) {
       console.error("Error sending email:", error);
-      return res
-        .status(500)
-        .json({ success: false, message: "Failed to send email." });
+      res.status(500).json({ success: false, message: "Failed to send email." });
     }
   } else {
-    return res.status(405).json({ success: false, message: "Method not allowed" });
+    res.status(405).json({ success: false, message: "Method not allowed" });
   }
 };
