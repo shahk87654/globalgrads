@@ -849,23 +849,28 @@
 
           let isValid = true;
 
-          // if (name.value.trim() === "") {
-          //   alert("Please enter your name");
-          //   name.focus();
-          //   isValid = false;
-          // } else if (email.value.trim() === "" || !email.value.includes("@")) {
-          //   alert("Please enter a valid email address.");
-          //   email.focus();
-          //   isValid = false;
-          // } else if (subject.value.trim() === "") {
-          //   alert("Please enter a subject");
-          //   subject.focus();
-          //   isValid = false;
-          // } else if (message.value.trim() === "") {
-          //   alert("Please enter your message");
-          //   message.focus();
-          //   isValid = false;
-          // }
+          let name = document.getElementById('name');
+          let email = document.getElementById('email');
+          let subject = document.getElementById('subject');
+          let message = document.getElementById('message');
+
+          if (name.value.trim() === "") {
+            alert("Please enter your name");
+            name.focus();
+            isValid = false;
+          } else if (email.value.trim() === "" || !email.value.includes("@")) {
+            alert("Please enter a valid email address.");
+            email.focus();
+            isValid = false;
+          } else if (subject.value.trim() === "") {
+            alert("Please enter a subject");
+            subject.focus();
+            isValid = false;
+          } else if (message.value.trim() === "") {
+            alert("Please enter your message");
+            message.focus();
+            isValid = false;
+          }
           console.log(isValid);
           if (isValid) {
             const formData = new FormData(form);
