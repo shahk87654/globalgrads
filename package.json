@@ -18,6 +18,7 @@
   "homepage": "https://github.com/shahk87654/globalgrads#readme",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "nodemailer": "^7.0.5"
   }
 }
