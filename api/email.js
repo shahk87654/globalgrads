@@ -2,7 +2,17 @@ const nodemailer = require("nodemailer");
 
 module.exports = async (req, res) => {
   if (req.method === "POST") {
-    const { firstName, lastName, email, phone, subject, message } = req.body;
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      highestEducation = "N/A",
+      preferredCountry = "N/A",
+      intendedCourse = "N/A",
+      subject,
+      message,
+    } = req.body;
 
     // Create a transporter object using the Gmail SMTP service
     const transporter = nodemailer.createTransport({
@@ -19,10 +29,13 @@ module.exports = async (req, res) => {
       to: process.env.GMAIL_USER, // Your Gmail address to receive the emails
       subject: `${subject}`,
       text:
-        `Name: ${firstName + " " + lastName}\n\n` +
-        `Email: ${email}\n\n` +
-        `Subject: ${subject}\n\n` +
-        `Phone: ${phone}\n\n` +
+        `Name: ${firstName + " " + lastName}\n` +
+        `Email: ${email}\n` +
+        `Subject: ${subject}\n` +
+        `Phone: ${phone}\n` +
+        `Highest Education: ${highestEducation}\n` +
+        `Preferred Country: ${preferredCountry}\n` +
+        `Intended Course: ${intendedCourse}\n` +
         `Message: ${message}\n`,
     };
 
