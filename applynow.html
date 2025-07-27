@@ -45,6 +45,10 @@
         z-index: 100;
       }
 
+      .toast {
+        z-index: 999999;
+      }
+
       .navbar {
         display: flex;
         align-items: center;
@@ -262,7 +266,7 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 10;
       }
 
       .navbar {
@@ -698,7 +702,7 @@
     </a>
     <div
       id="toast"
-      class="fixed top-5 right-5 z-50 hidden bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-300"
+      class="toast fixed top-5 hidden right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-300"
     >
       Application submitted successfully!
     </div>
@@ -754,7 +758,7 @@
               showToast("Application submitted successfully!");
               form.reset();
             } else {
-              showToast(result.message || "Failed to send email.", true);
+              showToast("Failed to submit application!", true);
             }
           } catch (error) {
             console.error("Error:", error);
