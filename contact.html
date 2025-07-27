@@ -1104,6 +1104,12 @@
         <i class="fas fa-phone text-xl"></i>
       </a>
     </div>
+    <div
+      id="toast"
+      class="fixed top-5 right-5 z-50 hidden bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-300"
+    >
+      Message sent successfully!
+    </div>
 
     <script>
       // Mobile menu toggle with smooth animation
@@ -1204,6 +1210,19 @@
       document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("contactForm");
 
+        const toast = document.getElementById("toast");
+
+        function showToast(message, isError = false) {
+          toast.textContent = message;
+          toast.classList.remove("hidden");
+          toast.classList.remove("bg-green-500", "bg-red-500");
+          toast.classList.add(isError ? "bg-red-500" : "bg-green-500");
+
+          setTimeout(() => {
+            toast.classList.add("hidden");
+          }, 3000);
+        }
+
         form.addEventListener("submit", async (event) => {
           event.preventDefault();
 
@@ -1233,15 +1252,10 @@
             const result = await response.json();
 
             if (response.ok) {
-              alert("sent Email.");
-              // Success response handling
-              // document
-              //   .getElementById("response-text")
-              //   .classList.remove("hidden");
-              form.reset(); // Optionally reset the form fields
+              showToast("Message sent successfully!");
+              form.reset();
             } else {
-              // Error response handling
-              alert(result.message || "Failed to send email.");
+              showToast(result.message || "Failed to send email.", true);
             }
           } catch (error) {
             console.error("Error:", error);
