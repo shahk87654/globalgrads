@@ -1,613 +1,1254 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - Globalgrads Consulting</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/npm-toast@1.0.5/dist/npm-toast.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/npm-toast@1.0.5/dist/npm-toast.min.js"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-blue': '#0b5394',
-                        'light-blue': '#4a86e8',
-                        'lighter-blue': '#c9daf8',
-                        'dark-blue': '#073763',
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
-                        'slide-left': 'slideLeft 0.8s ease-out',
-                        'slide-right': 'slideRight 0.8s ease-out',
-                        'float': 'float 4s ease-in-out infinite',
-                        'glow': 'glow 3s ease-in-out infinite alternate',
-                        'pulse-gentle': 'pulseGentle 2s ease-in-out infinite',
-                        'shimmer': 'shimmer 2.5s linear infinite',
-                        'bounce-soft': 'bounceSoft 2s infinite',
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-                        slideLeft: { '0%': { transform: 'translateX(40px)', opacity: '0' }, '100%': { transform: 'translateX(0)', opacity: '1' } },
-                        slideRight: { '0%': { transform: 'translateX(-40px)', opacity: '0' }, '100%': { transform: 'translateX(0)', opacity: '1' } },
-                        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-15px)' } },
-                        glow: { '0%': { boxShadow: '0 0 10px rgba(11, 83, 148, 0.3)' }, '100%': { boxShadow: '0 0 25px rgba(11, 83, 148, 0.6)' } },
-                        pulseGentle: { '0%, 100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.05)' } },
-                        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
-                        bounceSoft: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-5px)' } }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-blue": "#0b5394",
+              "light-blue": "#4a86e8",
+              "lighter-blue": "#c9daf8",
+              "dark-blue": "#073763",
+            },
+            animation: {
+              "fade-in": "fadeIn 0.6s ease-out",
+              "slide-up": "slideUp 0.8s ease-out",
+              "slide-left": "slideLeft 0.8s ease-out",
+              "slide-right": "slideRight 0.8s ease-out",
+              float: "float 4s ease-in-out infinite",
+              glow: "glow 3s ease-in-out infinite alternate",
+              "pulse-gentle": "pulseGentle 2s ease-in-out infinite",
+              shimmer: "shimmer 2.5s linear infinite",
+              "bounce-soft": "bounceSoft 2s infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": {
+                  opacity: "0",
+                },
+                "100%": {
+                  opacity: "1",
+                },
+              },
+              slideUp: {
+                "0%": {
+                  transform: "translateY(40px)",
+                  opacity: "0",
+                },
+                "100%": {
+                  transform: "translateY(0)",
+                  opacity: "1",
+                },
+              },
+              slideLeft: {
+                "0%": {
+                  transform: "translateX(40px)",
+                  opacity: "0",
+                },
+                "100%": {
+                  transform: "translateX(0)",
+                  opacity: "1",
+                },
+              },
+              slideRight: {
+                "0%": {
+                  transform: "translateX(-40px)",
+                  opacity: "0",
+                },
+                "100%": {
+                  transform: "translateX(0)",
+                  opacity: "1",
+                },
+              },
+              float: {
+                "0%, 100%": {
+                  transform: "translateY(0px)",
+                },
+                "50%": {
+                  transform: "translateY(-15px)",
+                },
+              },
+              glow: {
+                "0%": {
+                  boxShadow: "0 0 10px rgba(11, 83, 148, 0.3)",
+                },
+                "100%": {
+                  boxShadow: "0 0 25px rgba(11, 83, 148, 0.6)",
+                },
+              },
+              pulseGentle: {
+                "0%, 100%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.05)",
+                },
+              },
+              shimmer: {
+                "0%": {
+                  backgroundPosition: "-200% 0",
+                },
+                "100%": {
+                  backgroundPosition: "200% 0",
+                },
+              },
+              bounceSoft: {
+                "0%, 100%": {
+                  transform: "translateY(0)",
+                },
+                "50%": {
+                  transform: "translateY(-5px)",
+                },
+              },
+            },
+          },
+        },
+      };
     </script>
     <style>
-        .gradient-text {
-            background: linear-gradient(135deg, #0b5394, #4a86e8, #0b5394);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            background-size: 200% 200%;
-            animation: shimmer 3s linear infinite;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .hover-lift {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .hover-lift:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-        .form-input {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .form-input:focus {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(11, 83, 148, 0.2);
-        }
-        .gradient-border {
-            background: linear-gradient(135deg, #0b5394, #4a86e8, #0b5394);
-            padding: 2px;
-            border-radius: 1.5rem;
-        }
-        .gradient-border > div {
-            background: white;
-            border-radius: 1.25rem;
-        }
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .faq-content.active {
-            max-height: 200px;
-        }
-        .floating-elements {
-            animation: float 6s ease-in-out infinite;
-        }
-        .floating-elements:nth-child(2) { animation-delay: 2s; }
-        .floating-elements:nth-child(3) { animation-delay: 4s; }
+      .gradient-text {
+        background: linear-gradient(135deg, #0b5394, #4a86e8, #0b5394);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        background-size: 200% 200%;
+        animation: shimmer 3s linear infinite;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .hover-lift {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .hover-lift:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .form-input {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .form-input:focus {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(11, 83, 148, 0.2);
+      }
+
+      .gradient-border {
+        background: linear-gradient(135deg, #0b5394, #4a86e8, #0b5394);
+        padding: 2px;
+        border-radius: 1.5rem;
+      }
+
+      .gradient-border > div {
+        background: white;
+        border-radius: 1.25rem;
+      }
+
+      .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .faq-content.active {
+        max-height: 200px;
+      }
+
+      .floating-elements {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-elements:nth-child(2) {
+        animation-delay: 2s;
+      }
+
+      .floating-elements:nth-child(3) {
+        animation-delay: 4s;
+      }
     </style>
-</head>
-<body class="font-sans overflow-x-hidden">
+  </head>
+
+  <body class="font-sans overflow-x-hidden">
     <!-- Header -->
-    <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex items-center justify-between h-20">
-                <div class="flex items-center group">
-                    <a href="index.html" class="flex items-center transition-transform duration-300 hover:scale-105">
-                        <img src="assets/logo (3).png" alt="Globalgrads Consulting Logo" class="h-12 w-auto transition-all duration-300 group-hover:drop-shadow-lg">
-                    </a>
-                </div>
-                
-                <div class="hidden md:block">
-                    <ul class="flex space-x-8">
-                        <li><a href="about.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
-                            About
-                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
-                        </a></li>
-                        <li><a href="services.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
-                            Services
-                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
-                        </a></li>
-                        <li><a href="studydestinations.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
-                            Study Destinations
-                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
-                        </a></li>
-                        <li><a href="scholarships.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
-                            Scholarships
-                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
-                        </a></li>
-                        <li><a href="contact.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
-                            Contact
-                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
-                        </a></li>
-                    </ul>
-                </div>
-                
-                <div class="flex items-center space-x-4">
-                    <a href="applynow.html" class="bg-gradient-to-r from-primary-blue to-dark-blue text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
-                        <i class="fas fa-rocket mr-2"></i>Apply Now
-                    </a>
-                    <button class="md:hidden text-2xl hover:text-primary-blue transition-colors duration-300" id="menu-toggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </nav>
-            
-            <!-- Mobile Menu -->
-            <div class="md:hidden hidden transform transition-all duration-300 ease-in-out" id="mobile-menu">
-                <ul class="py-4 space-y-4 bg-white rounded-lg shadow-lg mt-4">
-                    <li><a href="about.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">About</a></li>
-                    <li><a href="services.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Services</a></li>
-                    <li><a href="studydestinations.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Study Destinations</a></li>
-                    <li><a href="scholarships.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Scholarships</a></li>
-                    <li><a href="contact.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Contact</a></li>
-                </ul>
-            </div>
+    <header
+      class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex items-center justify-between h-20">
+          <div class="flex items-center group">
+            <a
+              href="index.html"
+              class="flex items-center transition-transform duration-300 hover:scale-105"
+            >
+              <img
+                src="assets/logo (3).png"
+                alt="Globalgrads Consulting Logo"
+                class="h-12 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
+              />
+            </a>
+          </div>
+
+          <div class="hidden md:block">
+            <ul class="flex space-x-8">
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group"
+                >
+                  About
+                  <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group"
+                >
+                  Services
+                  <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="studydestinations.html"
+                  class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group"
+                >
+                  Study Destinations
+                  <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="scholarships.html"
+                  class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group"
+                >
+                  Scholarships
+                  <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"
+                  ></span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group"
+                >
+                  Contact
+                  <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"
+                  ></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <a
+              href="applynow.html"
+              class="bg-gradient-to-r from-primary-blue to-dark-blue text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <i class="fas fa-rocket mr-2"></i>Apply Now
+            </a>
+            <button
+              class="md:hidden text-2xl hover:text-primary-blue transition-colors duration-300"
+              id="menu-toggle"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div
+          class="md:hidden hidden transform transition-all duration-300 ease-in-out"
+          id="mobile-menu"
+        >
+          <ul class="py-4 space-y-4 bg-white rounded-lg shadow-lg mt-4">
+            <li>
+              <a
+                href="about.html"
+                class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="services.html"
+                class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="studydestinations.html"
+                class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300"
+                >Study Destinations</a
+              >
+            </li>
+            <li>
+              <a
+                href="scholarships.html"
+                class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300"
+                >Scholarships</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300"
+                >Contact</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="relative text-white py-32 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary-blue via-dark-blue to-primary-blue opacity-95"></div>
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); opacity: 0.2;"></div>
-        
-        <!-- Floating Elements -->
-        <div class="absolute top-32 left-16 w-24 h-24 bg-white/5 rounded-full floating-elements"></div>
-        <div class="absolute top-48 right-24 w-20 h-20 bg-white/5 rounded-full floating-elements"></div>
-        <div class="absolute bottom-32 left-1/3 w-16 h-16 bg-white/5 rounded-full floating-elements"></div>
-        <div class="absolute top-1/2 right-1/4 w-12 h-12 bg-white/5 rounded-full floating-elements"></div>
-        
-        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-7xl lg:text-8xl font-bold mb-10 animate-fade-in">
-                Let's 
-                <span class="gradient-text">Connect</span>
-            </h1>
-            <p class="text-2xl max-w-4xl mx-auto opacity-90 mb-12 leading-relaxed">Get in touch with our experts for personalized guidance on your international education journey</p>
-            
-            <!-- Sleek CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                <a href="#contact-form" class="group glass-card text-primary-blue px-10 py-5 rounded-2xl font-semibold text-lg hover-lift animate-glow">
-                    <i class="fas fa-envelope mr-3 group-hover:rotate-12 transition-transform duration-300"></i>Send Message
-                </a>
-                <a href="tel:+15551234567" class="group border-2 border-white text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-white hover:text-primary-blue transition-all duration-300 hover-lift">
-                    <i class="fas fa-phone mr-3 group-hover:rotate-12 transition-transform duration-300"></i>Call Now
-                </a>
-            </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-primary-blue via-dark-blue to-primary-blue opacity-95"
+      ></div>
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+          opacity: 0.2;
+        "
+      ></div>
+
+      <!-- Floating Elements -->
+      <div
+        class="absolute top-32 left-16 w-24 h-24 bg-white/5 rounded-full floating-elements"
+      ></div>
+      <div
+        class="absolute top-48 right-24 w-20 h-20 bg-white/5 rounded-full floating-elements"
+      ></div>
+      <div
+        class="absolute bottom-32 left-1/3 w-16 h-16 bg-white/5 rounded-full floating-elements"
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-12 h-12 bg-white/5 rounded-full floating-elements"
+      ></div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-7xl lg:text-8xl font-bold mb-10 animate-fade-in">
+          Let's
+          <span class="gradient-text">Connect</span>
+        </h1>
+        <p class="text-2xl max-w-4xl mx-auto opacity-90 mb-12 leading-relaxed">
+          Get in touch with our experts for personalized guidance on your
+          international education journey
+        </p>
+
+        <!-- Sleek CTA Buttons -->
+        <div
+          class="flex flex-col sm:flex-row gap-8 justify-center items-center"
+        >
+          <a
+            href="#contact-form"
+            class="group glass-card text-primary-blue px-10 py-5 rounded-2xl font-semibold text-lg hover-lift animate-glow"
+          >
+            <i
+              class="fas fa-envelope mr-3 group-hover:rotate-12 transition-transform duration-300"
+            ></i
+            >Send Message
+          </a>
+          <a
+            href="tel:+15551234567"
+            class="group border-2 border-white text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-white hover:text-primary-blue transition-all duration-300 hover-lift"
+          >
+            <i
+              class="fas fa-phone mr-3 group-hover:rotate-12 transition-transform duration-300"
+            ></i
+            >Call Now
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Contact Cards Section -->
-    <section class="py-24 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-primary-blue/8 to-light-blue/8 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-light-blue/8 to-primary-blue/8 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-primary-blue/5 to-light-blue/5 rounded-full blur-2xl"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl font-bold mb-6 text-gray-800 animate-fade-in">Get In Touch</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Ready to start your international education journey? Our expert counselors are here to help you every step of the way.</p>
-            </div>
-            
-            <!-- Sleek Contact Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-20">
-                <!-- Phone Card -->
-                <div class="group glass-card rounded-3xl p-10 shadow-xl hover-lift animate-slide-up">
-                    <div class="w-20 h-20 bg-gradient-to-br from-primary-blue to-dark-blue rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                        <i class="fas fa-phone text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-blue transition-colors duration-300">Call Us</h3>
-                    <p class="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">Speak directly with our experts</p>
-                    <div class="space-y-3">
-                        <p class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300">+1 (555) 123-4567</p>
-                        <p class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300">+1 (555) 987-6543</p>
-                    </div>
-                </div>
+    <section
+      class="py-24 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden"
+    >
+      <!-- Background Elements -->
+      <div
+        class="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-primary-blue/8 to-light-blue/8 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-light-blue/8 to-primary-blue/8 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-primary-blue/5 to-light-blue/5 rounded-full blur-2xl"
+      ></div>
 
-                <!-- Email Card -->
-                <div class="group glass-card rounded-3xl p-10 shadow-xl hover-lift animate-slide-up" style="animation-delay: 0.1s;">
-                    <div class="w-20 h-20 bg-gradient-to-br from-light-blue to-primary-blue rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                        <i class="fas fa-envelope text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-blue transition-colors duration-300">Email Us</h3>
-                    <p class="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">Send us a detailed message</p>
-                    <div class="space-y-3">
-                        <p class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300">info@globalgrads.com</p>
-                        <p class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300">admissions@globalgrads.com</p>
-                    </div>
-                </div>
-
-                <!-- Location Card -->
-                <div class="group glass-card rounded-3xl p-10 shadow-xl hover-lift animate-slide-up" style="animation-delay: 0.2s;">
-                    <div class="w-20 h-20 bg-gradient-to-br from-primary-blue to-dark-blue rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                        <i class="fas fa-map-marker-alt text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-blue transition-colors duration-300">Visit Us</h3>
-                    <p class="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">Come meet us in person</p>
-                    <div class="space-y-3">
-                        <p class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300">123 Education Street</p>
-                        <p class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300">Academic City, ED 12345</p>
-                    </div>
-                </div>
-
-                <!-- Hours Card -->
-                <div class="group glass-card rounded-3xl p-10 shadow-xl hover-lift animate-slide-up" style="animation-delay: 0.3s;">
-                    <div class="w-20 h-20 bg-gradient-to-br from-light-blue to-primary-blue rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                        <i class="fas fa-clock text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-blue transition-colors duration-300">Business Hours</h3>
-                    <p class="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">When we're available</p>
-                    <div class="space-y-3">
-                        <p class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300">Mon-Fri: 9AM-6PM</p>
-                        <p class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300">Sat: 10AM-4PM</p>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+          <h2 class="text-5xl font-bold mb-6 text-gray-800 animate-fade-in">
+            Get In Touch
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Ready to start your international education journey? Our expert
+            counselors are here to help you every step of the way.
+          </p>
         </div>
+
+        <!-- Sleek Contact Cards Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-20"
+        >
+          <!-- Phone Card -->
+          <div
+            class="group glass-card rounded-3xl p-10 shadow-xl hover-lift animate-slide-up"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-primary-blue to-dark-blue rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"
+            >
+              <i class="fas fa-phone text-3xl text-white"></i>
+            </div>
+            <h3
+              class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-blue transition-colors duration-300"
+            >
+              Call Us
+            </h3>
+            <p
+              class="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300"
+            >
+              Speak directly with our experts
+            </p>
+            <div class="space-y-3">
+              <p
+                class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300"
+              >
+                +1 (555) 123-4567
+              </p>
+              <p
+                class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300"
+              >
+                +1 (555) 987-6543
+              </p>
+            </div>
+          </div>
+
+          <!-- Email Card -->
+          <div
+            class="group glass-card rounded-3xl p-10 shadow-xl hover-lift animate-slide-up"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-light-blue to-primary-blue rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"
+            >
+              <i class="fas fa-envelope text-3xl text-white"></i>
+            </div>
+            <h3
+              class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-blue transition-colors duration-300"
+            >
+              Email Us
+            </h3>
+            <p
+              class="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300"
+            >
+              Send us a detailed message
+            </p>
+            <div class="space-y-3">
+              <p
+                class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300"
+              >
+                info@globalgrads.com
+              </p>
+              <p
+                class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300"
+              >
+                admissions@globalgrads.com
+              </p>
+            </div>
+          </div>
+
+          <!-- Location Card -->
+          <div
+            class="group glass-card rounded-3xl p-10 shadow-xl hover-lift animate-slide-up"
+            style="animation-delay: 0.2s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-primary-blue to-dark-blue rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"
+            >
+              <i class="fas fa-map-marker-alt text-3xl text-white"></i>
+            </div>
+            <h3
+              class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-blue transition-colors duration-300"
+            >
+              Visit Us
+            </h3>
+            <p
+              class="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300"
+            >
+              Come meet us in person
+            </p>
+            <div class="space-y-3">
+              <p
+                class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300"
+              >
+                123 Education Street
+              </p>
+              <p
+                class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300"
+              >
+                Academic City, ED 12345
+              </p>
+            </div>
+          </div>
+
+          <!-- Hours Card -->
+          <div
+            class="group glass-card rounded-3xl p-10 shadow-xl hover-lift animate-slide-up"
+            style="animation-delay: 0.3s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-light-blue to-primary-blue rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"
+            >
+              <i class="fas fa-clock text-3xl text-white"></i>
+            </div>
+            <h3
+              class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary-blue transition-colors duration-300"
+            >
+              Business Hours
+            </h3>
+            <p
+              class="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300"
+            >
+              When we're available
+            </p>
+            <div class="space-y-3">
+              <p
+                class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300"
+              >
+                Mon-Fri: 9AM-6PM
+              </p>
+              <p
+                class="text-xl font-semibold text-primary-blue group-hover:scale-105 transition-transform duration-300"
+              >
+                Sat: 10AM-4PM
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Form Section -->
-    <section id="contact-form" class="py-24 bg-gradient-to-br from-lighter-blue via-white to-lighter-blue relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-primary-blue/15 to-light-blue/15 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-light-blue/15 to-primary-blue/15 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-primary-blue/10 to-light-blue/10 rounded-full blur-2xl"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <!-- Contact Information -->
-                <div class="animate-slide-left">
-                    <h2 class="text-5xl font-bold mb-8 text-gray-800">Ready to Start Your Journey?</h2>
-                    <p class="text-xl text-gray-600 mb-10 leading-relaxed">
-                        Fill out the form and our expert counselors will get back to you within 24 hours. We're here to make your international education dreams a reality.
-                    </p>
-                    
-                    <!-- Social Media Links -->
-                    <div class="mb-10">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Follow Us</h3>
-                        <div class="flex space-x-6">
-                            <a href="#" class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center text-white hover:shadow-xl hover:scale-110 transition-all duration-300 group">
-                                <i class="fab fa-facebook-f text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
-                            </a>
-                            <a href="#" class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center text-white hover:shadow-xl hover:scale-110 transition-all duration-300 group">
-                                <i class="fab fa-twitter text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
-                            </a>
-                            <a href="#" class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center text-white hover:shadow-xl hover:scale-110 transition-all duration-300 group">
-                                <i class="fab fa-linkedin-in text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
-                            </a>
-                            <a href="#" class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center text-white hover:shadow-xl hover:scale-110 transition-all duration-300 group">
-                                <i class="fab fa-instagram text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
-                            </a>
-                        </div>
-                    </div>
+    <section
+      id="contact-form"
+      class="py-24 bg-gradient-to-br from-lighter-blue via-white to-lighter-blue relative overflow-hidden"
+    >
+      <!-- Background Elements -->
+      <div
+        class="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-primary-blue/15 to-light-blue/15 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-light-blue/15 to-primary-blue/15 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-primary-blue/10 to-light-blue/10 rounded-full blur-2xl"
+      ></div>
 
-                    <!-- Quick Contact Info -->
-                    <div class="space-y-8">
-                        <div class="flex items-center group hover:bg-white hover:shadow-lg p-6 rounded-2xl transition-all duration-300">
-                            <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-phone text-white text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-lg font-semibold group-hover:text-primary-blue transition-colors duration-300">Emergency Contact</p>
-                                <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">+1 (555) 999-8888</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center group hover:bg-white hover:shadow-lg p-6 rounded-2xl transition-all duration-300">
-                            <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-comments text-white text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-lg font-semibold group-hover:text-primary-blue transition-colors duration-300">Live Chat</p>
-                                <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Available 24/7</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Sleek Contact Form -->
-                <div class="animate-slide-right">
-                    <div class="gradient-border rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500">
-                        <div class="bg-white rounded-3xl p-8">
-                            <h2 class="text-4xl font-bold mb-10 text-gray-800 text-center">Send Us a Message</h2>
-                            <form class="space-y-8">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    <div class="group">
-                                        <label for="firstName" class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300">First Name *</label>
-                                        <input type="text" id="firstName" name="firstName" required 
-                                               class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg">
-                                    </div>
-                                    <div class="group">
-                                        <label for="lastName" class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300">Last Name *</label>
-                                        <input type="text" id="lastName" name="lastName" required 
-                                               class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg">
-                                    </div>
-                                </div>
-                                
-                                <div class="group">
-                                    <label for="email" class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300">Email Address *</label>
-                                    <input type="email" id="email" name="email" required 
-                                           class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg">
-                                </div>
-                                
-                                <div class="group">
-                                    <label for="phone" class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" 
-                                           class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg">
-                                </div>
-                                
-                                <div class="group">
-                                    <label for="subject" class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300">Subject *</label>
-                                    <select id="subject" name="subject" required 
-                                            class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg">
-                                        <option value="">Select a subject</option>
-                                        <option value="general">General Inquiry</option>
-                                        <option value="admissions">University Admissions</option>
-                                        <option value="visa">Visa Assistance</option>
-                                        <option value="scholarship">Scholarship Information</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="group">
-                                    <label for="message" class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300">Message *</label>
-                                    <textarea id="message" name="message" rows="6" required 
-                                              class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg resize-vertical"></textarea>
-                                </div>
-                                
-                                <button type="submit" class="w-full bg-gradient-to-r from-primary-blue to-dark-blue text-white py-6 rounded-2xl font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-2 group">
-                                    <i class="fas fa-paper-plane mr-3 group-hover:rotate-12 transition-transform duration-300"></i>Send Message
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <!-- Contact Information -->
+          <div class="animate-slide-left">
+            <h2 class="text-5xl font-bold mb-8 text-gray-800">
+              Ready to Start Your Journey?
+            </h2>
+            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+              Fill out the form and our expert counselors will get back to you
+              within 24 hours. We're here to make your international education
+              dreams a reality.
+            </p>
+
+            <!-- Social Media Links -->
+            <div class="mb-10">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+                Follow Us
+              </h3>
+              <div class="flex space-x-6">
+                <a
+                  href="#"
+                  class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center text-white hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+                >
+                  <i
+                    class="fab fa-facebook-f text-2xl group-hover:rotate-12 transition-transform duration-300"
+                  ></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center text-white hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+                >
+                  <i
+                    class="fab fa-twitter text-2xl group-hover:rotate-12 transition-transform duration-300"
+                  ></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center text-white hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+                >
+                  <i
+                    class="fab fa-linkedin-in text-2xl group-hover:rotate-12 transition-transform duration-300"
+                  ></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center text-white hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+                >
+                  <i
+                    class="fab fa-instagram text-2xl group-hover:rotate-12 transition-transform duration-300"
+                  ></i>
+                </a>
+              </div>
             </div>
+
+            <!-- Quick Contact Info -->
+            <div class="space-y-8">
+              <div
+                class="flex items-center group hover:bg-white hover:shadow-lg p-6 rounded-2xl transition-all duration-300"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-phone text-white text-xl"></i>
+                </div>
+                <div>
+                  <p
+                    class="text-lg font-semibold group-hover:text-primary-blue transition-colors duration-300"
+                  >
+                    Emergency Contact
+                  </p>
+                  <p
+                    class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300"
+                  >
+                    +1 (555) 999-8888
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-center group hover:bg-white hover:shadow-lg p-6 rounded-2xl transition-all duration-300"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-primary-blue to-dark-blue rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-comments text-white text-xl"></i>
+                </div>
+                <div>
+                  <p
+                    class="text-lg font-semibold group-hover:text-primary-blue transition-colors duration-300"
+                  >
+                    Live Chat
+                  </p>
+                  <p
+                    class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300"
+                  >
+                    Available 24/7
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sleek Contact Form -->
+          <div class="animate-slide-right">
+            <div
+              class="gradient-border rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500"
+            >
+              <div class="bg-white rounded-3xl p-8">
+                <h2 class="text-4xl font-bold mb-10 text-gray-800 text-center">
+                  Send Us a Message
+                </h2>
+                <form id="contactForm" class="space-y-8">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="group">
+                      <label
+                        for="firstName"
+                        class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300"
+                        >First Name *</label
+                      >
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        required
+                        class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg"
+                      />
+                    </div>
+                    <div class="group">
+                      <label
+                        for="lastName"
+                        class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300"
+                        >Last Name *</label
+                      >
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        required
+                        class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="group">
+                    <label
+                      for="email"
+                      class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300"
+                      >Email Address *</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg"
+                    />
+                  </div>
+
+                  <div class="group">
+                    <label
+                      for="phone"
+                      class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300"
+                      >Phone Number</label
+                    >
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg"
+                    />
+                  </div>
+
+                  <div class="group">
+                    <label
+                      for="subject"
+                      class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300"
+                      >Subject *</label
+                    >
+                    <select
+                      id="subject"
+                      name="subject"
+                      required
+                      class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg"
+                    >
+                      <option value="">Select a subject</option>
+                      <option value="general">General Inquiry</option>
+                      <option value="admissions">University Admissions</option>
+                      <option value="visa">Visa Assistance</option>
+                      <option value="scholarship">
+                        Scholarship Information
+                      </option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <div class="group">
+                    <label
+                      for="message"
+                      class="block text-lg font-semibold text-gray-700 mb-3 group-hover:text-primary-blue transition-colors duration-300"
+                      >Message *</label
+                    >
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="6"
+                      required
+                      class="form-input w-full px-6 py-5 border-2 border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all duration-300 hover:border-primary-blue bg-white text-lg resize-vertical"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    id="sendButton"
+                    type="submit"
+                    class="w-full bg-gradient-to-r from-primary-blue to-dark-blue text-white py-6 rounded-2xl font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-2 group"
+                  >
+                    <i
+                      class="fas fa-paper-plane mr-3 group-hover:rotate-12 transition-transform duration-300"
+                    ></i
+                    >Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Map Section -->
     <section class="py-20 bg-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-10 left-10 w-20 h-20 bg-gradient-to-br from-primary-blue/10 to-light-blue/10 rounded-full blur-xl"></div>
-        <div class="absolute bottom-10 right-10 w-24 h-24 bg-gradient-to-br from-light-blue/10 to-primary-blue/10 rounded-full blur-xl"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-8 text-center text-gray-800 animate-fade-in">Find Us</h2>
-            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover-lift">
-                <div class="h-96 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center group relative">
-                    <!-- Map Placeholder with Animation -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/5 to-light-blue/5"></div>
-                    <div class="text-center group-hover:scale-105 transition-transform duration-300 relative z-10">
-                        <div class="w-24 h-24 bg-gradient-to-br from-primary-blue to-dark-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                            <i class="fas fa-map-marked-alt text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Location</h3>
-                        <p class="text-gray-600 text-lg mb-2">123 Education Street, Suite 101</p>
-                        <p class="text-gray-600 text-lg mb-4">Academic City, ED 12345</p>
-                        <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-blue to-dark-blue text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
-                            <i class="fas fa-directions mr-2"></i>Get Directions
-                        </a>
-                    </div>
-                </div>
+      <!-- Background Elements -->
+      <div
+        class="absolute top-10 left-10 w-20 h-20 bg-gradient-to-br from-primary-blue/10 to-light-blue/10 rounded-full blur-xl"
+      ></div>
+      <div
+        class="absolute bottom-10 right-10 w-24 h-24 bg-gradient-to-br from-light-blue/10 to-primary-blue/10 rounded-full blur-xl"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-4xl font-bold mb-8 text-center text-gray-800 animate-fade-in"
+        >
+          Find Us
+        </h2>
+        <div
+          class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover-lift"
+        >
+          <div
+            class="h-96 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center group relative"
+          >
+            <!-- Map Placeholder with Animation -->
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-primary-blue/5 to-light-blue/5"
+            ></div>
+            <div
+              class="text-center group-hover:scale-105 transition-transform duration-300 relative z-10"
+            >
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-primary-blue to-dark-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300"
+              >
+                <i class="fas fa-map-marked-alt text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                Our Location
+              </h3>
+              <p class="text-gray-600 text-lg mb-2">
+                123 Education Street, Suite 101
+              </p>
+              <p class="text-gray-600 text-lg mb-4">Academic City, ED 12345</p>
+              <a
+                href="#"
+                class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-blue to-dark-blue text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+              >
+                <i class="fas fa-directions mr-2"></i>Get Directions
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-20 right-20 w-16 h-16 bg-gradient-to-br from-primary-blue/10 to-light-blue/10 rounded-full blur-lg"></div>
-        <div class="absolute bottom-20 left-20 w-20 h-20 bg-gradient-to-br from-light-blue/10 to-primary-blue/10 rounded-full blur-lg"></div>
-        
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-12 text-center text-gray-800 animate-fade-in">Frequently Asked Questions</h2>
-            <div class="space-y-4">
-                <div class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift" onclick="toggleFAQ(this)">
-                    <div class="p-6 flex justify-between items-center">
-                        <h3 class="text-lg font-semibold text-gray-800">How long does the application process take?</h3>
-                        <i class="fas fa-chevron-down text-primary-blue transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-content px-6 pb-6">
-                        <p class="text-gray-600">The application process typically takes 2-4 weeks for university applications and 4-8 weeks for visa processing, depending on the country and program.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift" onclick="toggleFAQ(this)">
-                    <div class="p-6 flex justify-between items-center">
-                        <h3 class="text-lg font-semibold text-gray-800">What documents do I need to apply?</h3>
-                        <i class="fas fa-chevron-down text-primary-blue transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-content px-6 pb-6">
-                        <p class="text-gray-600">Required documents include academic transcripts, English proficiency test scores, passport copy, personal statement, and letters of recommendation. Specific requirements vary by university.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift" onclick="toggleFAQ(this)">
-                    <div class="p-6 flex justify-between items-center">
-                        <h3 class="text-lg font-semibold text-gray-800">Do you offer scholarship assistance?</h3>
-                        <i class="fas fa-chevron-down text-primary-blue transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-content px-6 pb-6">
-                        <p class="text-gray-600">Yes, we help students identify and apply for various scholarships, grants, and financial aid opportunities available for international students.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift" onclick="toggleFAQ(this)">
-                    <div class="p-6 flex justify-between items-center">
-                        <h3 class="text-lg font-semibold text-gray-800">What is your success rate?</h3>
-                        <i class="fas fa-chevron-down text-primary-blue transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-content px-6 pb-6">
-                        <p class="text-gray-600">We maintain a 98% success rate for university admissions and 95% success rate for visa applications, thanks to our experienced counselors and comprehensive support.</p>
-                    </div>
-                </div>
+    <section
+      class="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
+    >
+      <!-- Background Elements -->
+      <div
+        class="absolute top-20 right-20 w-16 h-16 bg-gradient-to-br from-primary-blue/10 to-light-blue/10 rounded-full blur-lg"
+      ></div>
+      <div
+        class="absolute bottom-20 left-20 w-20 h-20 bg-gradient-to-br from-light-blue/10 to-primary-blue/10 rounded-full blur-lg"
+      ></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-4xl font-bold mb-12 text-center text-gray-800 animate-fade-in"
+        >
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-4">
+          <div
+            class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift"
+            onclick="toggleFAQ(this)"
+          >
+            <div class="p-6 flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-gray-800">
+                How long does the application process take?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-primary-blue transition-transform duration-300"
+              ></i>
             </div>
+            <div class="faq-content px-6 pb-6">
+              <p class="text-gray-600">
+                The application process typically takes 2-4 weeks for university
+                applications and 4-8 weeks for visa processing, depending on the
+                country and program.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift"
+            onclick="toggleFAQ(this)"
+          >
+            <div class="p-6 flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-gray-800">
+                What documents do I need to apply?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-primary-blue transition-transform duration-300"
+              ></i>
+            </div>
+            <div class="faq-content px-6 pb-6">
+              <p class="text-gray-600">
+                Required documents include academic transcripts, English
+                proficiency test scores, passport copy, personal statement, and
+                letters of recommendation. Specific requirements vary by
+                university.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift"
+            onclick="toggleFAQ(this)"
+          >
+            <div class="p-6 flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Do you offer scholarship assistance?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-primary-blue transition-transform duration-300"
+              ></i>
+            </div>
+            <div class="faq-content px-6 pb-6">
+              <p class="text-gray-600">
+                Yes, we help students identify and apply for various
+                scholarships, grants, and financial aid opportunities available
+                for international students.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift"
+            onclick="toggleFAQ(this)"
+          >
+            <div class="p-6 flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-gray-800">
+                What is your success rate?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-primary-blue transition-transform duration-300"
+              ></i>
+            </div>
+            <div class="faq-content px-6 pb-6">
+              <p class="text-gray-600">
+                We maintain a 98% success rate for university admissions and 95%
+                success rate for visa applications, thanks to our experienced
+                counselors and comprehensive support.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center mb-6 group">
-                        <a href="index.html" class="transition-transform duration-300 hover:scale-105">
-                            <img src="assets/wl.jpeg" alt="Globalgrads Consulting Logo" class="h-12 w-auto group-hover:drop-shadow-lg transition-all duration-300">
-                        </a>
-                    </div>
-                    <p class="text-gray-300 mb-6 leading-relaxed">Globalgrads Consulting helps students achieve their academic and career aspirations with expert guidance in university admissions, course selection, and visa applications.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="about.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">Services</a></li>
-                        <li><a href="studydestinations.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">Study Destinations</a></li>
-                        <li><a href="scholarships.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">Scholarships</a></li>
-                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-6">Newsletter</h4>
-                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for updates</p>
-                    <form class="space-y-3">
-                        <input type="email" placeholder="Your email" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white transition-all duration-300 hover:border-primary-blue">
-                        <button type="submit" class="w-full bg-gradient-to-r from-primary-blue to-dark-blue text-white py-2 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
-                            <i class="fas fa-paper-plane mr-2"></i>Subscribe
-                        </button>
-                    </form>
-                </div>
+    <footer
+      class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center mb-6 group">
+              <a
+                href="index.html"
+                class="transition-transform duration-300 hover:scale-105"
+              >
+                <img
+                  src="assets/wl.jpeg"
+                  alt="Globalgrads Consulting Logo"
+                  class="h-12 w-auto group-hover:drop-shadow-lg transition-all duration-300"
+                />
+              </a>
             </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-300">&copy; 2024 Globalgrads Consulting. All rights reserved.</p>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Globalgrads Consulting helps students achieve their academic and
+              career aspirations with expert guidance in university admissions,
+              course selection, and visa applications.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
             </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="studydestinations.html"
+                  class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Study Destinations</a
+                >
+              </li>
+              <li>
+                <a
+                  href="scholarships.html"
+                  class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Scholarships</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-6">Newsletter</h4>
+            <p class="text-gray-300 mb-4">
+              Subscribe to our newsletter for updates
+            </p>
+            <form class="space-y-3">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white transition-all duration-300 hover:border-primary-blue"
+              />
+              <button
+                type="submit"
+                class="w-full bg-gradient-to-r from-primary-blue to-dark-blue text-white py-2 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+              >
+                <i class="fas fa-paper-plane mr-2"></i>Subscribe
+              </button>
+            </form>
+          </div>
         </div>
+
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+          <p class="text-gray-300">
+            &copy; 2024 Globalgrads Consulting. All rights reserved.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <!-- Floating Action Buttons -->
     <div class="fixed bottom-6 right-6 z-50 space-y-4">
-        <!-- WhatsApp Button -->
-        <a href="https://wa.me/1234567890" target="_blank" class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-bounce-slow">
-            <i class="fab fa-whatsapp text-2xl"></i>
-        </a>
-        <!-- Phone Button -->
-        <a href="tel:+15551234567" class="w-14 h-14 bg-primary-blue rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-pulse-slow">
-            <i class="fas fa-phone text-xl"></i>
-        </a>
+      <!-- WhatsApp Button -->
+      <a
+        href="https://wa.me/1234567890"
+        target="_blank"
+        class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-bounce-slow"
+      >
+        <i class="fab fa-whatsapp text-2xl"></i>
+      </a>
+      <!-- Phone Button -->
+      <a
+        href="tel:+15551234567"
+        class="w-14 h-14 bg-primary-blue rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-pulse-slow"
+      >
+        <i class="fas fa-phone text-xl"></i>
+      </a>
     </div>
 
     <script>
-        // Mobile menu toggle with smooth animation
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('animate-fade-in');
-            }
-        });
+      // Mobile menu toggle with smooth animation
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // FAQ Toggle Function
-        function toggleFAQ(element) {
-            const content = element.querySelector('.faq-content');
-            const icon = element.querySelector('.fas');
-            
-            // Close all other FAQ items
-            document.querySelectorAll('.faq-content').forEach(item => {
-                if (item !== content) {
-                    item.classList.remove('active');
-                }
-            });
-            
-            document.querySelectorAll('.faq-item .fas').forEach(item => {
-                if (item !== icon) {
-                    item.style.transform = 'rotate(0deg)';
-                }
-            });
-            
-            // Toggle current FAQ item
-            content.classList.toggle('active');
-            icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("animate-fade-in");
         }
+      });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
-        }, observerOptions);
+          }
+        });
+      });
 
-        // Observe elements for animation
-        document.querySelectorAll('.animate-fade-in, .animate-slide-up, .animate-slide-down, .animate-slide-left, .animate-slide-right').forEach(el => {
-            observer.observe(el);
+      // FAQ Toggle Function
+      function toggleFAQ(element) {
+        const content = element.querySelector(".faq-content");
+        const icon = element.querySelector(".fas");
+
+        // Close all other FAQ items
+        document.querySelectorAll(".faq-content").forEach((item) => {
+          if (item !== content) {
+            item.classList.remove("active");
+          }
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('bg-white/98', 'shadow-xl');
-            } else {
-                header.classList.remove('bg-white/98', 'shadow-xl');
-            }
+        document.querySelectorAll(".faq-item .fas").forEach((item) => {
+          if (item !== icon) {
+            item.style.transform = "rotate(0deg)";
+          }
         });
 
-        // Form input animations
-        document.querySelectorAll('.form-input').forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.classList.add('scale-105');
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.classList.remove('scale-105');
-            });
+        // Toggle current FAQ item
+        content.classList.toggle("active");
+        icon.style.transform = content.classList.contains("active")
+          ? "rotate(180deg)"
+          : "rotate(0deg)";
+      }
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in");
+          }
         });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document
+        .querySelectorAll(
+          ".animate-fade-in, .animate-slide-up, .animate-slide-down, .animate-slide-left, .animate-slide-right"
+        )
+        .forEach((el) => {
+          observer.observe(el);
+        });
+
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.classList.add("bg-white/98", "shadow-xl");
+        } else {
+          header.classList.remove("bg-white/98", "shadow-xl");
+        }
+      });
+
+      // Form input animations
+      document.querySelectorAll(".form-input").forEach((input) => {
+        input.addEventListener("focus", function () {
+          this.parentElement.classList.add("scale-105");
+        });
+
+        input.addEventListener("blur", function () {
+          this.parentElement.classList.remove("scale-105");
+        });
+      });
     </script>
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const formData = new FormData(form);
+          const data = {
+            firstName: formData.get("firstName"),
+            lastName: formData.get("lastName"),
+            email: formData.get("email"),
+            phone: formData.get("phone"),
+            subject: formData.get("subject"),
+            message: formData.get("message"),
+          };
+          console.log(data);
+
+          try {
+            const response = await fetch(
+              "https://www.globalgrads.us/api/email", // Your serverless function URL
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+              }
+            );
+
+            const result = await response.json();
+
+            if (response.ok) {
+              alert("sent Email.");
+              // Success response handling
+              // document
+              //   .getElementById("response-text")
+              //   .classList.remove("hidden");
+              form.reset(); // Optionally reset the form fields
+            } else {
+              // Error response handling
+              alert(result.message || "Failed to send email.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An unexpected error occurred.");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
