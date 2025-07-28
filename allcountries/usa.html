@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study in United States - Global Grads</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Tailwind Configuration for colors and fonts (consistent with other pages) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-blue': '#1A3B5D', // A deep, professional blue
+            'secondary-yellow': '#FFD700', // A bright accent yellow
+            'light-blue': '#E0F2F7', // A very light blue for backgrounds
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'], // Using Inter as the primary font
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Custom CSS for elements not easily styled by Tailwind or for specific overrides */
+    body {
+      font-family: 'Inter', sans-serif; /* Ensure Inter font is applied */
+    }
+
+    /* Mobile back button specific styling (consistent across pages) */
+    .mobile-back-btn {
+      display: none; /* Hidden by default, shown on mobile breakpoints */
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1000; /* Ensure it stays on top of other content */
+    }
+    .mobile-back-btn a {
+      color: white;
+      font-size: 1.5rem; /* Icon size */
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for visibility */
+      padding: 0.5rem 0.75rem;
+      border-radius: 9999px; /* Fully rounded button */
+      display: flex; /* Flexbox for icon and text alignment */
+      align-items: center;
+      gap: 0.5rem; /* Space between icon and text */
+      transition: background-color 0.3s ease; /* Smooth transition on hover */
+    }
+    .mobile-back-btn a:hover {
+      background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+    }
+    .mobile-back-btn span {
+      display: none; /* Text hidden on desktop, only icon shown */
+    }
+
+    /* Media query for mobile responsiveness (consistent across pages) */
+    @media (max-width: 768px) {
+      .mobile-back-btn {
+        display: block; /* Show the back button on mobile */
+      }
+      .mobile-back-btn span {
+        display: inline; /* Show text "Back" next to the icon on mobile */
+      }
+      header nav {
+        display: none; /* Hide the main navigation links on small screens */
+      }
+      .hero-section h1 {
+        font-size: 2.5rem; /* Adjust hero title size for better mobile viewing */
+      }
+      .hero-section p {
+        font-size: 1rem; /* Adjust hero subtitle size for mobile */
+      }
+      .footer-content {
+        flex-direction: column; /* Stack footer columns vertically on mobile */
+        align-items: center; /* Center align items in the footer */
+        text-align: center; /* Center text in footer columns */
+      }
+      .footer-about, .footer-links-column, .footer-contact {
+        flex: none; /* Remove flex basis to allow full width */
+        width: 100%; /* Make footer columns take full width on mobile */
+      }
+      .social-links {
+        justify-content: center; /* Center social links on mobile */
+      }
+      .contact-info-footer {
+        justify-content: center; /* Center contact info items on mobile */
+      }
+      .newsletter-form {
+        justify-content: center; /* Center newsletter form on mobile */
+      }
+    }
+  </style>
+</head>
+<body class="bg-light-blue text-gray-900">
+
+  <!-- Mobile Back Button - Visible on smaller screens -->
+  <div class="mobile-back-btn">
+    <a href="javascript:history.back()" class="flex items-center">
+      <i class="fas fa-arrow-left"></i>
+      <span class="ml-2">Back</span>
+    </a>
+  </div>
+
+  <!-- Header Section (consistent across pages) -->
+  <header class="bg-primary-blue text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+      <!-- Logo/Site Title -->
+      <a href="/index.html" class="text-2xl font-bold tracking-tight hover:text-secondary-yellow transition-colors duration-300">Global Grads</a>
+      <!-- Navigation Links (hidden on small screens) -->
+      <nav class="space-x-6 hidden md:block">
+        <a href="/studydestinations.html" class="hover:text-secondary-yellow transition-colors duration-300">Destinations</a>
+        <a href="/about.html" class="hover:text-secondary-yellow transition-colors duration-300">About</a>
+        <a href="/contact.html" class="hover:text-secondary-yellow transition-colors duration-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section - Full width image with overlay text (consistent across pages) -->
+  <section class="relative w-full h-64 md:h-80 flex items-center justify-center hero-section">
+    <!-- Background Image with fallback placeholder (updated for USA) -->
+    <img src="/assets/usa.jpg" alt="United States" class="absolute inset-0 w-full h-full object-cover brightness-75" onerror="this.onerror=null;this.src='https://placehold.co/1200x400/1A3B5D/FFFFFF?text=Study+in+USA+Image+Not+Found';" />
+    <!-- Gradient overlay for better text readability -->
+    <div class="absolute inset-0 bg-gradient-to-t from-primary-blue/60 to-transparent"></div>
+    <!-- Hero Text Content -->
+    <div class="relative z-10 text-center p-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg mb-2">Study in United States</h1>
+      <a href="/contact.html" class="inline-block bg-secondary-yellow text-primary-blue font-bold py-3 px-8 rounded-full shadow-md hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+        Start Your Journey <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content Area - Grid layout for sections (consistent across pages) -->
+  <main class="max-w-4xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <!-- Why the United States? Section -->
+    <section class="bg-white rounded-xl shadow-lg p-6 transform transition-transform hover:scale-105 duration-300 col-span-full">
+      <h2 class="text-2xl font-bold text-primary-blue mb-4 flex items-center">
+        <i class="fas fa-question-circle mr-3 text-secondary-yellow"></i>Why the United States?
+      </h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">The United States is home to many of the world’s top universities, offering cutting-edge research, diverse programs, and a vibrant campus life. Experience innovation, culture, and opportunity in cities across the country.</p>
+      <ul class="list-none pl-0 text-gray-700 space-y-2">
+        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Top-ranked universities and colleges</li>
+        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Wide range of academic programs</li>
+        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Opportunities for research and internships</li>
+        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Diverse culture and student communities</li>
+      </ul>
+    </section>
+
+    <!-- Popular Universities Section -->
+    <section class="bg-white rounded-xl shadow-lg p-6 transform transition-transform hover:scale-105 duration-300">
+      <h2 class="text-xl font-semibold text-primary-blue mb-4 flex items-center">
+        <i class="fas fa-university mr-3 text-secondary-yellow"></i>Popular Universities
+      </h2>
+      <ul class="list-none pl-0 text-gray-700 space-y-2">
+        <li class="flex items-center"><i class="fas fa-arrow-right text-primary-blue mr-2"></i>Harvard University</li>
+        <li class="flex items-center"><i class="fas fa-arrow-right text-primary-blue mr-2"></i>Stanford University</li>
+        <li class="flex items-center"><i class="fas fa-arrow-right text-primary-blue mr-2"></i>Massachusetts Institute of Technology (MIT)</li>
+        <li class="flex items-center"><i class="fas fa-arrow-right text-primary-blue mr-2"></i>University of California, Berkeley</li>
+        <li class="flex items-center"><i class="fas fa-arrow-right text-primary-blue mr-2"></i>Columbia University</li>
+      </ul>
+    </section>
+
+    <!-- Scholarships & Funding Section -->
+    <section class="bg-white rounded-xl shadow-lg p-6 transform transition-transform hover:scale-105 duration-300">
+      <h2 class="text-xl font-semibold text-primary-blue mb-4 flex items-center">
+        <i class="fas fa-hand-holding-usd mr-3 text-secondary-yellow"></i>Scholarships & Funding
+      </h2>
+      <p class="text-gray-700 leading-relaxed">The US offers a variety of scholarships for international students, including government, university, and private awards. Explore options like:</p>
+      <ul class="list-none pl-0 text-gray-700 space-y-2">
+        <li class="flex items-center"><i class="fas fa-arrow-right text-primary-blue mr-2"></i>Fulbright Foreign Student Program</li>
+        <li class="flex items-center"><i class="fas fa-arrow-right text-primary-blue mr-2"></i>Hubert H. Humphrey Fellowship Program</li>
+        <li class="flex items-center"><i class="fas fa-arrow-right text-primary-blue mr-2"></i>University-specific scholarships</li>
+      </ul>
+    </section>
+
+    <!-- Student Life Section -->
+    <section class="bg-white rounded-xl shadow-lg p-6 transform transition-transform hover:scale-105 duration-300">
+      <h2 class="text-xl font-semibold text-primary-blue mb-4 flex items-center">
+        <i class="fas fa-users mr-3 text-secondary-yellow"></i>Student Life
+      </h2>
+      <p class="text-gray-700 leading-relaxed">Enjoy a vibrant student life with clubs, sports, and cultural events. US campuses are known for their diversity, innovation, and strong support for international students.</p>
+    </section>
+
+    <!-- Call to Action Section (full width, consistent across pages) -->
+    <section class="bg-primary-blue text-white rounded-xl shadow-lg p-6 text-center col-span-full">
+      <h2 class="text-2xl font-bold mb-4">Ready to Start Your US Journey?</h2>
+      <p class="mb-6">Contact us today for personalized guidance on admissions, visas, and more!</p>
+      <a href="/contact.html" class="inline-block bg-secondary-yellow text-primary-blue font-bold py-3 px-8 rounded-full shadow-md hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+        Get Free Consultation <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </section>
+
+    <!-- Navigation Arrows (consistent across pages) -->
+    <div class="flex justify-between mt-6 col-span-full">
+      <a href="wales.html" class="text-primary-blue hover:text-secondary-yellow hover:underline flex items-center transition-colors duration-300">
+        <i class="fas fa-arrow-left mr-2"></i> Wales
+      </a>
+      <a href="uk.html" class="text-primary-blue hover:text-secondary-yellow hover:underline flex items-center transition-colors duration-300">
+        United Kingdom <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer Section (consistent across pages) -->
+  <footer class="bg-primary-blue text-white py-10 mt-10">
+    <div class="max-w-4xl mx-auto px-4 footer-content grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- About Section in Footer -->
+      <div class="footer-about text-center md:text-left">
+        <a href="index.html" class="inline-block mb-4">
+          <!-- Logo with fallback placeholder -->
+          <img src="https://placehold.co/150x50/FFFFFF/1A3B5D?text=Global+Grads" alt="Global Grads Logo" class="footer-logo mx-auto md:mx-0 rounded-md" onerror="this.onerror=null;this.src='https://placehold.co/150x50/FFFFFF/1A3B5D?text=Global+Grads';" />
+        </a>
+        <p class="text-sm leading-relaxed mb-4">Global Grads Consulting helps students achieve their academic and career aspirations with expert guidance in university admissions, course selection, and visa applications.</p>
+        <!-- Social Media Links -->
+        <div class="social-links flex justify-center md:justify-start space-x-4">
+          <a href="https://facebook.com/Globalgrads" target="_blank" class="text-white hover:text-secondary-yellow transition-colors duration-300 text-xl"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/Globalgrads" target="_blank" class="text-white hover:text-secondary-yellow transition-colors duration-300 text-xl"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/Globalgrads" target="_blank" class="text-white hover:text-secondary-yellow transition-colors duration-300 text-xl"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com/company/Globalgrads" target="_blank" class="text-white hover:text-secondary-yellow transition-colors duration-300 text-xl"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://youtube.com/c/Globalgrads" target="_blank" class="text-white hover:text-secondary-yellow transition-colors duration-300 text-xl"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links Section in Footer -->
+      <div class="footer-links-column text-center md:text-left">
+        <h4 class="footer-heading text-lg font-bold mb-4">Quick Links</h4>
+        <ul class="footer-links space-y-2">
+          <li><a href="about.html" class="text-white hover:text-secondary-yellow transition-colors duration-300 flex items-center justify-center md:justify-start"><i class="fas fa-chevron-right text-secondary-yellow mr-2 text-xs"></i> About Us</a></li>
+          <li><a href="services.html" class="text-white hover:text-secondary-yellow transition-colors duration-300 flex items-center justify-center md:justify-start"><i class="fas fa-chevron-right text-secondary-yellow mr-2 text-xs"></i> Our Services</a></li>
+          <li><a href="studydestinations.html" class="text-white hover:text-secondary-yellow transition-colors duration-300 flex items-center justify-center md:justify-start"><i class="fas fa-chevron-right text-secondary-yellow mr-2 text-xs"></i> Study Destinations</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Us & Newsletter Section in Footer -->
+      <div class="footer-contact text-center md:text-left">
+        <h4 class="footer-heading text-lg font-bold mb-4">Contact Us</h4>
+        <div class="contact-info-footer space-y-2 mb-4">
+          <div class="flex items-center justify-center md:justify-start">
+            <i class="fas fa-map-marker-alt text-secondary-yellow mr-3"></i>
+            <div>123 Education Street, Suite 101<br>Academic City, ED 12345</div>
+          </div>
+          <div class="flex items-center justify-center md:justify-start">
+            <i class="fas fa-phone-alt text-secondary-yellow mr-3"></i>
+            <div>+92 3004074318</div>
+          </div>
+          <div class="flex items-center justify-center md:justify-start">
+            <i class="fas fa-envelope text-secondary-yellow mr-3"></i>
+            <div>info@Globalgrads.com</div>
+          </div>
+        </div>
+        <h4 class="footer-heading text-lg font-bold mb-3">Newsletter</h4>
+        <p class="text-sm mb-3">Subscribe to our newsletter for updates</p>
+        <form class="newsletter-form flex justify-center md:justify-start" id="newsletterForm">
+          <input type="email" placeholder="Your Email" class="newsletter-input p-3 rounded-l-md focus:outline-none focus:ring-2 focus:ring-secondary-yellow text-gray-900 w-full max-w-xs" required>
+          <button type="submit" class="newsletter-btn bg-secondary-yellow text-primary-blue p-3 rounded-r-md hover:bg-yellow-400 transition-colors duration-300 flex items-center justify-center">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Footer Bottom - Copyright and Policy Links -->
+    <div class="footer-bottom text-center text-sm mt-8 pt-6 border-t border-primary-blue-light">
+      <p>&copy; 2025 Global Grads Consulting. All Rights Reserved. <a href="privacy.html" class="text-white hover:text-secondary-yellow underline transition-colors duration-300">Privacy Policy</a> | <a href="terms.html" class="text-white hover:text-secondary-yellow underline transition-colors duration-300">Terms of Service</a></p>
+    </div>
+  </footer>
+
+  <script>
+    console.log("USA page loaded");
+    // Simple form submission handler
+    document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const emailInput = this.querySelector('input[type="email"]');
+      console.log(`Thank you for subscribing with: ${emailInput.value}`); // Changed from alert()
+      emailInput.value = ''; // Clear input
+    });
+  </script>
+</body>
+</html>

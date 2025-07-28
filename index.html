@@ -140,25 +140,6 @@
         margin-top: 1rem;
         gap: 0.4rem;
       }
-      .dot {
-        width: 0.6rem;
-        height: 0.6rem;
-        background-color: #bfdbfe;
-        border-radius: 9999px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-out, transform 0.3s ease-out;
-      }
-      .dot.active {
-        background-color: #0b5394;
-        transform: scale(1.1);
-      }
-
-      /* Responsive adjustments for destination cards */
-      @media (min-width: 768px) {
-        .destination-slide {
-          flex: 0 0 50%;
-        }
-      }
       @media (min-width: 1024px) {
         .destination-slide {
           flex: 0 0 25%;
@@ -178,7 +159,7 @@
               class="flex items-center transition-transform duration-300 hover:scale-105"
             >
               <span class="text-2xl font-bold text-primary-blue"
-                >Globalgrads</span
+                >Global Grads</span
               >
             </a>
           </div>
@@ -496,329 +477,616 @@
       </div>
     </section>
 
-    <section class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800 animate-fade-in"
-        >
-          Our Simple
-          <span class="gradient-text"> Process </span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="text-center animate-slide-up">
-            <div
-              class="w-20 h-20 bg-primary-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg numbered-circle-hover"
-            >
-              <span class="text-3xl font-bold">1</span>
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              Initial Consultation
-            </h3>
-            <p class="text-gray-600 text-sm">
-              Schedule a free consultation to discuss your academic goals and
-              preferences.
-            </p>
-          </div>
-          <div
-            class="text-center animate-slide-up"
-            style="animation-delay: 0.1s"
-          >
-            <div
-              class="w-20 h-20 bg-primary-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg numbered-circle-hover"
-            >
-              <span class="text-3xl font-bold">2</span>
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              Personalized Plan
-            </h3>
-            <p class="text-gray-600 text-sm">
-              We create a tailored study plan, including university options and
-              application strategies.
-            </p>
-          </div>
-          <div
-            class="text-center animate-slide-up"
-            style="animation-delay: 0.2s"
-          >
-            <div
-              class="w-20 h-20 bg-primary-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg numbered-circle-hover"
-            >
-              <span class="text-3xl font-bold">3</span>
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              Application & Support
-            </h3>
-            <p class="text-gray-600 text-sm">
-              Receive full support with applications, visa, and pre-departure
-              preparations.
+<section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100" aria-label="Our Streamlined Approach">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-16 text-center text-gray-900 animate-fade-in-down">
+      Our <span class="text-indigo-600">Streamlined</span> Approach
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <article class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300 animate-slide-in-left">
+        <div class="w-24 h-24 bg-indigo-500 text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl border-4 border-indigo-200 process-icon-pulse">
+          <span class="text-4xl font-bold">1</span>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-3">Discovery Call</h3>
+        <p class="text-gray-700 leading-relaxed text-base">
+          Let's connect for a no-obligation chat to understand your aspirations and academic background.
+        </p>
+      </article>
+
+      <article class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300 animate-slide-in-up delay-150">
+        <div class="w-24 h-24 bg-indigo-500 text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl border-4 border-indigo-200 process-icon-pulse">
+          <span class="text-4xl font-bold">2</span>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-3">Custom Roadmap</h3>
+        <p class="text-gray-700 leading-relaxed text-base">
+          We'll craft a bespoke strategy, complete with university matches and application frameworks.
+        </p>
+      </article>
+
+      <article class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300 animate-slide-in-right delay-300">
+        <div class="w-24 h-24 bg-indigo-500 text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl border-4 border-indigo-200 process-icon-pulse">
+          <span class="text-4xl font-bold">3</span>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-3">Guidance & Beyond</h3>
+        <p class="text-gray-700 leading-relaxed text-base">
+          From application submission to visa guidance and pre-departure essentials, we're with you.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom Animations and Styles (add this to your CSS file or a style block) */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 1s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-up {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .process-icon-pulse:hover {
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+
+  /* Delay utilities (from Tailwind's default setup, good to include if not globally configured) */
+  .delay-150 { animation-delay: 0.15s; }
+  .delay-300 { animation-delay: 0.3s; }
+</style>
+
+    <section class="py-20 bg-gradient-to-r from-blue-50 to-purple-50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-16 text-gray-900 animate-fade-in-scale">
+      What Our <span class="text-purple-600">Students Say</span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white p-10 rounded-3xl shadow-xl border border-blue-100 transform hover:-translate-y-2 transition-transform duration-300 ease-in-out animate-slide-in-bottom delay-100 testimonial-card">
+        <p class="text-gray-700 italic mb-8 text-lg leading-relaxed relative quote-icon">
+          "Global Education Hub truly opened doors for me! Their expert guidance through the Canadian application and visa process was a game-changer. As a Pakistani student, I felt incredibly supported at every turn, making my dream a reality!"
+        </p>
+        <div class="flex items-center justify-center">
+          <img
+            src="https://placehold.co/80x80/6b46c1/ffffff?text=AK"
+            alt="Student Avatar Ahmed Khan"
+            class="w-16 h-16 rounded-full mr-5 shadow-lg animate-pulse-light"
+          />
+          <div>
+            <p class="font-bold text-gray-900 text-xl">Ahmed Khan</p>
+            <p class="text-purple-700 text-base mt-1">
+              Student, University of Toronto, Canada
             </p>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="py-16 bg-soft-gray">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2
-          class="text-3xl md:text-4xl font-bold mb-12 text-gray-800 animate-fade-in"
-        >
-          What Our
-          <span class="gradient-text"> Students Say </span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            class="bg-white p-8 rounded-xl shadow-md card-hover-effect animate-slide-up border border-gray-100"
-          >
-            <p class="text-gray-700 italic mb-6 text-base leading-relaxed">
-              "Globalgrads Consulting made my dream of studying in Canada a
-              reality. Their guidance through the application and visa process
-              was invaluable. As a Pakistani student, I felt fully supported
-              every step of the way!"
+      <div class="bg-white p-10 rounded-3xl shadow-xl border border-purple-100 transform hover:-translate-y-2 transition-transform duration-300 ease-in-out animate-slide-in-bottom delay-200 testimonial-card">
+        <p class="text-gray-700 italic mb-8 text-lg leading-relaxed relative quote-icon">
+          "The team at Global Education Hub is exceptional! They helped me secure a prestigious scholarship in the UK and brilliantly prepared me for my interviews. For any Pakistani student aspiring to global education, I can't recommend them enough!"
+        </p>
+        <div class="flex items-center justify-center">
+          <img
+            src="https://placehold.co/80x80/6b46c1/ffffff?text=FS"
+            alt="Student Avatar Fatima Shah"
+            class="w-16 h-16 rounded-full mr-5 shadow-lg animate-pulse-light"
+          />
+          <div>
+            <p class="font-bold text-gray-900 text-xl">Fatima Shah</p>
+            <p class="text-purple-700 text-base mt-1">
+              Student, University of Manchester, UK
             </p>
-            <div class="flex items-center justify-center">
-              <img
-                src="https://placehold.co/60x60/0b5394/ffffff?text=AH"
-                alt="Student Avatar"
-                class="w-14 h-14 rounded-full mr-4 animate-bounce-subtle"
-              />
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-10 rounded-3xl shadow-xl border border-blue-100 transform hover:-translate-y-2 transition-transform duration-300 ease-in-out animate-slide-in-bottom delay-300 testimonial-card">
+        <p class="text-gray-700 italic mb-8 text-lg leading-relaxed relative quote-icon">
+          "My journey to Australia seemed daunting until I found Global Education Hub. Their personalized approach made the entire process, from university selection to visa application, incredibly smooth. Truly a life-changing experience!"
+        </p>
+        <div class="flex items-center justify-center">
+          <img
+            src="https://placehold.co/80x80/6b46c1/ffffff?text=IM"
+            alt="Student Avatar Imran Malik"
+            class="w-16 h-16 rounded-full mr-5 shadow-lg animate-pulse-light"
+          />
+          <div>
+            <p class="font-bold text-gray-900 text-xl">Imran Malik</p>
+            <p class="text-purple-700 text-base mt-1">
+              Student, University of Melbourne, Australia
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Custom Animations & Styles */
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideInBottom {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulseLight {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .animate-fade-in-scale {
+      animation: fadeInScale 1s ease-out forwards;
+    }
+
+    .animate-slide-in-bottom {
+      animation: slideInBottom 0.8s ease-out forwards;
+    }
+
+    .animate-pulse-light {
+      animation: pulseLight 2s infinite ease-in-out;
+    }
+
+    /* Specific testimonial card styles (if used elsewhere, keeping for context) */
+    .testimonial-card {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .quote-icon::before {
+      content: "“";
+      font-family: Arial, sans-serif;
+      position: absolute;
+      top: -15px;
+      left: -10px;
+      font-size: 80px;
+      color: rgba(129, 140, 248, 0.2); /* Light purple from Tailwind's indigo */
+      line-height: 1;
+      z-index: 0;
+    }
+
+    /* Slider specific styles */
+    .slider-container {
+      overflow: hidden; /* Hide overflowing slides */
+      position: relative;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out; /* Smooth transition for slides */
+    }
+
+    .destination-slide {
+      flex: 0 0 auto; /* Prevent slides from shrinking */
+      /* Dynamic width based on JS variable --items-per-page */
+      width: calc(100% / var(--items-per-page, 1));
+      padding: 0 10px; /* Add some spacing between cards */
+      box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .slider-button:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .slider-button.left {
+      left: 10px;
+    }
+
+    .slider-button.right {
+      right: 10px;
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .dot:hover {
+      transform: scale(1.2);
+    }
+
+    .dot.active {
+      background-color: #717171;
+    }
+
+    /* Responsive adjustments for the destination cards within the slider */
+    @media (min-width: 640px) { /* sm breakpoint */
+      .destination-slide {
+        width: calc(100% / var(--items-per-page, 2));
+      }
+    }
+
+    @media (min-width: 1024px) { /* lg breakpoint */
+      .destination-slide {
+        width: calc(100% / var(--items-per-page, 3)); /* Default to 3 for larger screens */
+      }
+    }
+
+    /* Ensure `card-hover-effect` styles are defined if not already */
+    .card-hover-effect {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover-effect:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Gradient text for headings */
+    .gradient-text {
+      background: linear-gradient(to right, #6366f1, #a855f7); /* Tailwind indigo-500 to purple-500 */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Learn More Button Hover Effect */
+    .learn-more-button:hover {
+      background-color: white; /* Background becomes white on hover */
+      color: var(--button-hover-text-color, #000); /* Text color set by JS or default black */
+    }
+  </style>
+</head>
+<body style="font-family: 'Inter', sans-serif;">
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800 animate-fade-in"
+      >
+        Popular
+        <span class="gradient-text"> Study Destinations </span>
+      </h2>
+      <div class="slider-container relative">
+        <div class="slider-wrapper" id="destinations-wrapper">
+          <!-- USA Card -->
+          <div class="destination-slide">
+            <div
+              class="group h-[350px] rounded-xl overflow-hidden relative shadow-lg card-hover-effect animate-slide-up bg-gradient-to-br from-blue-700 to-blue-900 flex flex-col justify-between p-8 text-white"
+            >
               <div>
-                <p class="font-bold text-gray-800 text-lg">Ahmed Khan</p>
-                <p class="text-gray-600 text-sm">
-                  Student, University of Toronto, Canada
+                <h3 class="text-2xl font-bold mb-2">United States 🗽</h3>
+                <p class="text-base opacity-95">
+                  World-class universities and diverse opportunities
                 </p>
               </div>
+              <a
+                href="allcountries/usa.html"
+                class="learn-more-button mt-6 inline-block px-6 py-3 border-2 border-white text-white rounded-full font-semibold text-center hover:text-blue-900 transform group-hover:scale-105"
+                data-hover-text-color="#1e40af"
+                >Learn More <i class="fas fa-arrow-right ml-2"></i
+              ></a>
             </div>
           </div>
-          <div
-            class="bg-white p-8 rounded-xl shadow-md card-hover-effect animate-slide-up border border-gray-100"
-            style="animation-delay: 0.1s"
-          >
-            <p class="text-gray-700 italic mb-6 text-base leading-relaxed">
-              "The team at Globalgrads is incredibly supportive. They helped me
-              find the perfect scholarship in the UK and prepare for my
-              interviews. Highly recommend for any Pakistani student aiming for
-              global education!"
-            </p>
-            <div class="flex items-center justify-center">
-              <img
-                src="https://placehold.co/60x60/0b5394/ffffff?text=FS"
-                alt="Student Avatar"
-                class="w-14 h-14 rounded-full mr-4 animate-bounce-subtle"
-                style="animation-delay: 0.1s"
-              />
+
+          <!-- Canada Card -->
+          <div class="destination-slide">
+            <div
+              class="group h-[350px] rounded-xl overflow-hidden relative shadow-lg card-hover-effect animate-slide-up bg-gradient-to-br from-red-700 to-red-900 flex flex-col justify-between p-8 text-white"
+              style="animation-delay: 0.1s"
+            >
               <div>
-                <p class="font-bold text-gray-800 text-lg">Fatima Shah</p>
-                <p class="text-gray-600 text-sm">
-                  Student, University of Manchester, UK
+                <h3 class="text-2xl font-bold mb-2">Canada 🍁</h3>
+                <p class="text-base opacity-95">
+                  Quality education and immigration pathways
                 </p>
               </div>
+              <a
+                href="allcountries/canada.html"
+                class="learn-more-button mt-6 inline-block px-6 py-3 border-2 border-white text-white rounded-full font-semibold text-center hover:text-red-900 transform group-hover:scale-105"
+                data-hover-text-color="#b91c1c"
+                >Learn More <i class="fas fa-arrow-right ml-2"></i
+              ></a>
             </div>
           </div>
-          <div
-            class="bg-white p-8 rounded-xl shadow-md card-hover-effect animate-slide-up border border-gray-100"
-            style="animation-delay: 0.2s"
-          >
-            <p class="text-gray-700 italic mb-6 text-base leading-relaxed">
-              "Navigating the Australian visa process seemed daunting, but
-              Globalgrads simplified everything. Their expertise was crucial,
-              and I'm now pursuing my degree in Melbourne. Thank you!"
-            </p>
-            <div class="flex items-center justify-center">
-              <img
-                src="https://placehold.co/60x60/0b5394/ffffff?text=IM"
-                alt="Student Avatar"
-                class="w-14 h-14 rounded-full mr-4 animate-bounce-subtle"
-                style="animation-delay: 0.2s"
-              />
+
+          <!-- Australia Card -->
+          <div class="destination-slide">
+            <div
+              class="group h-[350px] rounded-xl overflow-hidden relative shadow-lg card-hover-effect animate-slide-up bg-gradient-to-br from-amber-600 to-orange-700 flex flex-col justify-between p-8 text-white"
+              style="animation-delay: 0.2s"
+            >
               <div>
-                <p class="font-bold text-gray-800 text-lg">Imran Malik</p>
-                <p class="text-gray-600 text-sm">
-                  Student, University of Melbourne, Australia
+                <h3 class="text-2xl font-bold mb-2">Australia 🐨</h3>
+                <p class="text-base opacity-95">
+                  Excellent lifestyle and work opportunities
                 </p>
               </div>
+              <a
+                href="allcountries/australia.html"
+                class="learn-more-button mt-6 inline-block px-6 py-3 border-2 border-white text-white rounded-full font-semibold text-center hover:text-orange-700 transform group-hover:scale-105"
+                data-hover-text-color="#c2410c"
+                >Learn More <i class="fas fa-arrow-right ml-2"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Europe Card -->
+          <div class="destination-slide">
+            <div
+              class="group h-[350px] rounded-xl overflow-hidden relative shadow-lg card-hover-effect animate-slide-up bg-gradient-to-br from-purple-700 to-indigo-900 flex flex-col justify-between p-8 text-white"
+              style="animation-delay: 0.3s"
+            >
+              <div>
+                <h3 class="text-2xl font-bold mb-2">Europe 🌍</h3>
+                <p class="text-base opacity-95">
+                  Rich culture and affordable education
+                </p>
+              </div>
+              <a
+                href="allcountries/europe.html"
+                class="learn-more-button mt-6 inline-block px-6 py-3 border-2 border-white text-white rounded-full font-semibold text-center hover:text-indigo-900 transform group-hover:scale-105"
+                data-hover-text-color="#4338ca"
+                >Learn More <i class="fas fa-arrow-right ml-2"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- United Kingdom Card -->
+          <div class="destination-slide">
+            <div
+              class="group h-[350px] rounded-xl overflow-hidden relative shadow-lg card-hover-effect animate-slide-up bg-gradient-to-br from-gray-800 to-black flex flex-col justify-between p-8 text-white"
+              style="animation-delay: 0.4s"
+            >
+              <div>
+                <h3 class="text-2xl font-bold mb-2">United Kingdom 🇬🇧</h3>
+                <p class="text-base opacity-95">
+                  Historic universities and diverse cities
+                </p>
+              </div>
+              <a
+                href="allcountries/uk.html"
+                class="learn-more-button mt-6 inline-block px-6 py-3 border-2 border-white text-white rounded-full font-semibold text-center hover:text-black transform group-hover:scale-105"
+                data-hover-text-color="#000000"
+                >Learn More <i class="fas fa-arrow-right ml-2"></i
+              ></a>
             </div>
           </div>
         </div>
+        <button class="slider-button left" id="prev-destination">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-button right" id="next-destination">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="slider-dots" id="destinations-dots"></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800 animate-fade-in"
-        >
-          Popular
-          <span class="gradient-text"> Study Destinations </span>
-        </h2>
-        <div class="slider-container relative">
-          <div class="slider-wrapper" id="destinations-wrapper">
-            <div class="destination-slide">
-              <div
-                class="group h-[350px] rounded-xl overflow-hidden relative shadow-md card-hover-effect animate-slide-up border border-gray-100"
-              >
-                <img
-                  src="https://placehold.co/600x400/0b5394/ffffff?text=USA"
-                  alt="USA"
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-primary-blue/80 via-primary-blue/50 to-transparent flex flex-col justify-end p-6 text-white"
-                >
-                  <h3 class="text-xl font-bold mb-2">United States</h3>
-                  <p class="text-sm opacity-90">
-                    World-class universities and diverse opportunities
-                  </p>
-                  <a
-                    href="usa.html"
-                    class="mt-4 inline-block text-sm font-semibold text-white hover:underline group-hover:translate-x-1 transition-transform duration-300"
-                    >Learn More <i class="fas fa-arrow-right ml-1"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const wrapper = document.getElementById('destinations-wrapper');
+      const slides = Array.from(
+        wrapper.getElementsByClassName('destination-slide')
+      );
+      const prevButton = document.getElementById('prev-destination');
+      const nextButton = document.getElementById('next-destination');
+      const dotsContainer = document.getElementById('destinations-dots');
 
-            <div class="destination-slide">
-              <div
-                class="group h-[350px] rounded-xl overflow-hidden relative shadow-md card-hover-effect animate-slide-up border border-gray-100"
-                style="animation-delay: 0.1s"
-              >
-                <img
-                  src="https://placehold.co/600x400/0b5394/ffffff?text=Canada"
-                  alt="Canada"
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-primary-blue/80 via-primary-blue/50 to-transparent flex flex-col justify-end p-6 text-white"
-                >
-                  <h3 class="text-xl font-bold mb-2">Canada</h3>
-                  <p class="text-sm opacity-90">
-                    Quality education and immigration pathways
-                  </p>
-                  <a
-                    href="canada.html"
-                    class="mt-4 inline-block text-sm font-semibold text-white hover:underline group-hover:translate-x-1 transition-transform duration-300"
-                    >Learn More <i class="fas fa-arrow-right ml-1"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
+      let currentIndex = 0;
+      let itemsPerPage = 1; // Default for mobile
 
-            <div class="destination-slide">
-              <div
-                class="group h-[350px] rounded-xl overflow-hidden relative shadow-md card-hover-effect animate-slide-up border border-gray-100"
-                style="animation-delay: 0.2s"
-              >
-                <img
-                  src="https://placehold.co/600x400/0b5394/ffffff?text=Australia"
-                  alt="Australia"
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-primary-blue/80 via-primary-blue/50 to-transparent flex flex-col justify-end p-6 text-white"
-                >
-                  <h3 class="text-xl font-bold mb-2">Australia</h3>
-                  <p class="text-sm opacity-90">
-                    Excellent lifestyle and work opportunities
-                  </p>
-                  <a
-                    href="australia.html"
-                    class="mt-4 inline-block text-sm font-semibold text-white hover:underline group-hover:translate-x-1 transition-transform duration-300"
-                    >Learn More <i class="fas fa-arrow-right ml-1"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
+      // Function to update itemsPerPage based on screen width
+      const updateItemsPerPage = () => {
+        // Determine the number of items to show per page based on screen width
+        const newItemsPerPage = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
 
-            <div class="destination-slide">
-              <div
-                class="group h-[350px] rounded-xl overflow-hidden relative shadow-md card-hover-effect animate-slide-up border border-gray-100"
-                style="animation-delay: 0.3s"
-              >
-                <img
-                  src="https://placehold.co/600x400/0b5394/ffffff?text=Europe"
-                  alt="Europe"
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-primary-blue/80 via-primary-blue/50 to-transparent flex flex-col justify-end p-6 text-white"
-                >
-                  <h3 class="text-xl font-bold mb-2">Europe</h3>
-                  <p class="text-sm opacity-90">
-                    Rich culture and affordable education
-                  </p>
-                  <a
-                    href="europe.html"
-                    class="mt-4 inline-block text-sm font-semibold text-white hover:underline group-hover:translate-x-1 transition-transform duration-300"
-                    >Learn More <i class="fas fa-arrow-right ml-1"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="slider-button left" id="prev-destination">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="slider-button right" id="next-destination">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-          <div class="slider-dots" id="destinations-dots"></div>
-        </div>
-      </div>
-    </section>
+        // Only update if the number of items per page has actually changed
+        if (newItemsPerPage !== itemsPerPage) {
+          itemsPerPage = newItemsPerPage;
+          // Set a CSS custom property on the wrapper element.
+          // This allows CSS to dynamically calculate the width of each slide.
+          wrapper.style.setProperty('--items-per-page', itemsPerPage);
+          
+          // Recalculate currentIndex to ensure it's valid for the new itemsPerPage.
+          // This prevents the slider from being in an awkward position after resizing.
+          currentIndex = Math.floor(currentIndex / itemsPerPage) * itemsPerPage;
+          
+          // Update the slider's position, create/update dots, and button visibility
+          updateSlider();
+          createDots();
+          updateDots();
+        }
+      };
 
-    <section class="py-16 bg-soft-gray">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800 animate-fade-in"
-        >
-          Our
-          <span class="gradient-text"> Success Stories </span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div
-            class="bg-white p-6 rounded-xl shadow-md card-hover-effect animate-slide-up border border-gray-100"
-          >
-            <img
-              src="https://placehold.co/400x250/0b5394/ffffff?text=Student+Success+1"
-              alt="Success Story 1"
-              class="w-full h-48 object-cover rounded-lg mb-4"
-            />
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              From Lahore to London: My UK Journey
-            </h3>
-            <p class="text-gray-600 text-sm mb-4">
-              "Globalgrads helped me secure admission to a top university in
-              London. Their detailed guidance on personal statements and visa
-              applications was exceptional. I'm so grateful for their support!"
-            </p>
-            <p class="font-semibold text-primary-blue text-sm">
-              - Ali Raza, pursuing Masters in Computer Science
-            </p>
-          </div>
-          <div
-            class="bg-white p-6 rounded-xl shadow-md card-hover-effect animate-slide-up border border-gray-100"
-            style="animation-delay: 0.1s"
-          >
-            <img
-              src="https://placehold.co/400x250/0b5394/ffffff?text=Student+Success+2"
-              alt="Success Story 2"
-              class="w-full h-48 object-cover rounded-lg mb-4"
-            />
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              Achieving My American Dream in New York
-            </h3>
-            <p class="text-gray-600 text-sm mb-4">
-              "The team at Globalgrads was instrumental in my admission to a
-              prestigious university in New York. Their interview coaching gave
-              me the confidence I needed. Truly a life-changing experience!"
-            </p>
-            <p class="font-semibold text-primary-blue text-sm">
-              - Sara Khan, studying Business Administration
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      // Function to update the slider's position and navigation button visibility
+      const updateSlider = () => {
+        // Get the computed style of the first slide to accurately calculate its total width,
+        // including any margins, which is crucial for correct translation.
+        const slideStyle = window.getComputedStyle(slides[0]);
+        const slideWidth = slides[0].offsetWidth +
+                           parseFloat(slideStyle.marginLeft) +
+                           parseFloat(slideStyle.marginRight);
+
+        // Calculate the horizontal offset for the slider wrapper
+        const offset = -currentIndex * slideWidth;
+        wrapper.style.transform = `translateX(${offset}px)`;
+
+        // Control visibility of navigation buttons:
+        // Hide 'prev' button if at the beginning of the slides.
+        prevButton.style.display = currentIndex === 0 ? 'none' : 'block';
+        // Hide 'next' button if at the end of the slides (or less than a full page remaining).
+        nextButton.style.display = (currentIndex + itemsPerPage) >= slides.length ? 'none' : 'block';
+      };
+
+      // Function to create pagination dots based on the total number of pages
+      const createDots = () => {
+        dotsContainer.innerHTML = ''; // Clear any existing dots
+        const totalPages = Math.ceil(slides.length / itemsPerPage); // Calculate total pages
+        for (let i = 0; i < totalPages; i++) {
+          const dot = document.createElement('span');
+          dot.classList.add('dot');
+          dot.addEventListener('click', () => {
+            currentIndex = i * itemsPerPage;
+            updateSlider();
+            updateDots();
+          });
+          dotsContainer.appendChild(dot);
+        }
+      };
+
+      // Function to update active dot
+      const updateDots = () => {
+        const dots = Array.from(dotsContainer.getElementsByClassName('dot'));
+        dots.forEach((dot, index) => {
+          // Set 'active' class for the dot corresponding to the current page
+          if (index === Math.floor(currentIndex / itemsPerPage)) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      };
+
+      // Event listener for previous button click
+      prevButton.addEventListener('click', () => {
+        // Move to the previous set of slides, ensuring not to go below index 0
+        currentIndex = Math.max(0, currentIndex - itemsPerPage);
+        updateSlider(); // Update slider position
+        updateDots();   // Update active dot
+      });
+
+      // Event listener for next button click
+      nextButton.addEventListener('click', () => {
+        // Calculate the maximum valid index to prevent going beyond the last slide
+        const maxIndex = slides.length - itemsPerPage;
+        // Move to the next set of slides, ensuring not to exceed the maxIndex
+        currentIndex = Math.min(maxIndex, currentIndex + itemsPerPage);
+        updateSlider(); // Update slider position
+        updateDots();   // Update active dot
+      });
+
+      // Initial setup when the DOM is fully loaded:
+      // 1. Determine and set the initial number of items per page.
+      // 2. Attach a resize event listener to update the layout on window resize.
+      updateItemsPerPage();
+      window.addEventListener('resize', updateItemsPerPage);
+    });
+  </script>
 
     <section class="py-16 bg-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1093,23 +1361,7 @@
           </div>
 
           <div>
-            <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
-            <p class="text-gray-400 text-sm mb-3">Subscribe for updates</p>
-            <form class="space-y-3">
-              <input
-                type="email"
-                placeholder="Your email"
-                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-blue text-white text-sm focus:border-primary-blue transition-all duration-300"
-              />
-              <button
-                type="submit"
-                class="w-full bg-primary-blue text-white py-2 rounded-lg font-medium hover:bg-dark-blue transition-all duration-300 text-sm hover:scale-105"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
+  
 
         <div class="border-t border-gray-700 mt-8 pt-6 text-center">
           <p class="text-gray-400 text-sm">

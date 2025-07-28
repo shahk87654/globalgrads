@@ -6,30 +6,53 @@
     <title>About Us - Globalgrads Consulting</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
                     colors: {
                         'primary-blue': '#0b5394',
                         'light-blue': '#4a86e8',
                         'lighter-blue': '#c9daf8',
                         'dark-blue': '#073763',
+                        'accent-orange': '#FF7F50', // New accent color
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                        'bounce-slow': 'bounce 2s infinite',
-                        'pulse-slow': 'pulse 3s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'scale-in': 'scaleIn 0.7s ease-out forwards',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+                        'pulse-custom': 'pulseCustom 2s infinite',
+                        'float-subtle': 'floatSubtle 3s ease-in-out infinite',
                     },
                     keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        pulseCustom: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        },
+                        floatSubtle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
                         }
                     }
                 }
@@ -43,34 +66,82 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .hero-bg-overlay {
+            background: linear-gradient(to right, rgba(11, 83, 148, 0.95), rgba(7, 55, 99, 0.95));
         }
-        .floating {
-            animation: floating 3s ease-in-out infinite;
+        .section-heading-underline {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
         }
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .section-heading-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 70%; /* Adjust width as needed */
+            height: 4px;
+            background: linear-gradient(to right, #4a86e8, #0b5394);
+            border-radius: 2px;
+        }
+        /* Initial states for Intersection Observer animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .animate-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        .animate-scale-in.active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .animate-slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        .animate-slide-in-left.active {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        .animate-slide-in-right.active {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
     </style>
 </head>
-<body class="font-sans">
+<body class="font-sans antialiased text-gray-900 bg-gray-50">
     <!-- Header -->
     <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex items-center justify-between h-20">
                 <div class="flex items-center group">
-                    <a href="index.html" class="flex items-center transition-transform duration-300 hover:scale-105">
-                        <img src="assets/logo (3).png" alt="Global Grads Logo" class="h-12 w-auto transition-all duration-300 group-hover:drop-shadow-lg">
-                    </a>
-                </div>
+                <a
+              href="index.html"
+              class="flex items-center transition-transform duration-300 hover:scale-105"
+            >
+              <span class="text-2xl font-bold text-primary-blue"
+                >Global Grads</span
+              >
+            </a>
+          </div>
                 
                 <div class="hidden md:block">
                     <ul class="flex space-x-8">
-                        <li><a href="about.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                        <li><a href="about.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group active-link">
                             About
                             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
                         </a></li>
@@ -94,17 +165,17 @@
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    <a href="applynow.html" class="bg-gradient-to-r from-primary-blue to-dark-blue text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 transform hover:-translate-y-1">
-                        <i class="fas fa-rocket mr-2"></i>Apply Now
+                    <a href="applynow.html" class="bg-gradient-to-r from-primary-blue to-dark-blue text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 group">
+                        <i class="fas fa-rocket mr-2 group-hover:animate-pulse-custom"></i>Apply Now
                     </a>
-                    <button class="md:hidden text-2xl hover:text-primary-blue transition-colors duration-300" id="menu-toggle">
+                    <button class="md:hidden text-2xl hover:text-primary-blue transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-blue rounded-md" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle mobile menu">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </nav>
             
             <!-- Mobile Menu -->
-            <div class="md:hidden hidden transform transition-all duration-300 ease-in-out" id="mobile-menu">
+            <div class="md:hidden hidden transform transition-all duration-300 ease-in-out origin-top" id="mobile-menu">
                 <ul class="py-4 space-y-4 bg-white rounded-lg shadow-lg mt-4">
                     <li><a href="about.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">About</a></li>
                     <li><a href="services.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Services</a></li>
@@ -117,241 +188,277 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative text-white py-20 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary-blue to-dark-blue opacity-90"></div>
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); opacity: 0.3;"></div>
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-                About 
-                <span class="gradient-text">Global Grads</span>
+    <section class="relative text-white py-24 lg:py-32 overflow-hidden bg-cover bg-center" ;">
+        <div class="absolute inset-0 hero-bg-overlay"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 drop-shadow-lg animate-fade-in-up">
+                Discover <span class="gradient-text">Global Grads</span>
             </h1>
-            <p class="text-xl max-w-3xl mx-auto opacity-90">Your trusted partner in international education, helping students achieve their academic dreams worldwide.</p>
-        </div>
-    </section>
-
-    <!-- About Content -->
-    <section class="py-20 bg-gradient-to-br from-white to-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="animate-slide-up">
-                    <h2 class="text-4xl font-bold mb-6 text-gray-800">Our Story</h2>
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                        Global Grads Consulting was founded with a simple mission: to make quality international education accessible to students worldwide. We understand the challenges and opportunities that come with studying abroad, and we're here to guide you every step of the way.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                        With years of experience in international education and a network of partner universities across the globe, we provide comprehensive support to help you achieve your academic and career goals.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="services.html" class="group bg-gradient-to-r from-primary-blue to-dark-blue text-white px-8 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 inline-block text-center transform hover:-translate-y-1">
-                            <i class="fas fa-rocket mr-2 group-hover:rotate-12 transition-transform duration-300"></i>Our Services
-                        </a>
-                        <a href="contact.html" class="group border-2 border-primary-blue text-primary-blue px-8 py-3 rounded-full font-medium hover:bg-primary-blue hover:text-white transition-all duration-300 inline-block text-center transform hover:-translate-y-1">
-                            <i class="fas fa-envelope mr-2 group-hover:scale-110 transition-transform duration-300"></i>Get in Touch
-                        </a>
-                    </div>
-                </div>
-                <div class="relative animate-fade-in">
-                    <div class="floating">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Students studying" class="w-full h-96 object-cover rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                    </div>
-                </div>
+            <p class="text-xl lg:text-2xl max-w-3xl mx-auto opacity-90 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                Your dedicated partner in unlocking world-class education opportunities and shaping your international academic journey.
+            </p>
+            <div class="mt-10 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <a href="#our-story" class="inline-flex items-center bg-accent-orange text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 group">
+                    <i class="fas fa-arrow-down mr-3 group-hover:animate-bounce-slow"></i>Learn More
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Vision -->
-    <section class="bg-gradient-to-br from-lighter-blue to-white py-20">
+    <!-- Our Story Section -->
+    <section id="our-story" class="py-20 lg:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="text-center group hover:bg-white hover:shadow-xl rounded-xl p-8 transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-20 h-20 bg-gradient-to-br from-primary-blue to-dark-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-bullseye text-3xl text-white"></i>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-in-left animate-on-scroll">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-8 text-gray-800 section-heading-underline">Our Journey</h2>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        Global Grads Consulting was born from a passion to bridge the gap between aspiring students and prestigious international universities. We recognized the immense potential within every student and the transformative power of global education. Our founders, experienced educators and international advisors, envisioned a service that was not just transactional, but deeply personal and supportive.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        From humble beginnings, we've grown into a trusted consultancy, building strong relationships with institutions worldwide and, most importantly, with the thousands of students whose dreams we've helped realize. Every success story fuels our commitment to excellence and innovation in international education.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                        <a href="services.html" class="group bg-gradient-to-r from-primary-blue to-dark-blue text-white px-8 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 inline-block text-center transform hover:-translate-y-1">
+                            <i class="fas fa-lightbulb mr-2 group-hover:rotate-6 transition-transform duration-300"></i>Our Expertise
+                        </a>
+                        <a href="contact.html" class="group border-2 border-primary-blue text-primary-blue px-8 py-3 rounded-full font-medium hover:bg-primary-blue hover:text-white transition-all duration-300 inline-block text-center transform hover:-translate-y-1">
+                            <i class="fas fa-comments mr-2 group-hover:scale-110 transition-transform duration-300"></i>Talk to an Advisor
+                        </a>
+                    </div>
+                </div>
+               
+    </section>
+
+    <!-- Mission & Vision & Values Section -->
+    <section class="py-20 lg:py-28 bg-gradient-to-br from-lighter-blue to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-16 text-center text-gray-800 section-heading-underline animate-on-scroll">Our Core Principles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in animate-on-scroll">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary-blue to-dark-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <i class="fas fa-compass text-3xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Our Mission</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        To empower students with the knowledge, resources, and support they need to successfully navigate their international education journey and achieve their academic and career aspirations.
+                        To empower students globally by providing **unparalleled guidance** and resources, ensuring their successful admission to top-tier international universities and fostering their academic and personal growth.
                     </p>
                 </div>
-                <div class="text-center group hover:bg-white hover:shadow-xl rounded-xl p-8 transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-20 h-20 bg-gradient-to-br from-light-blue to-primary-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-eye text-3xl text-white"></i>
+                <div class="text-center group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-light-blue to-primary-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <i class="fas fa-globe-americas text-3xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Our Vision</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        To be the leading international education consultancy, recognized for our commitment to student success and our innovative approach to global education solutions.
+                        To be the most trusted and innovative international education consultancy, recognized for creating a **world of interconnected learners** and leaders who drive positive global change.
                     </p>
                 </div>
+                <div class="text-center group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-accent-orange to-primary-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <i class="fas fa-hand-holding-heart text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Our Values</h3>
+                    <ul class="text-gray-600 leading-relaxed list-disc list-inside text-left mx-auto max-w-xs">
+                        <li>**Integrity:** Upholding honesty and transparency.</li>
+                        <li>**Excellence:** Delivering superior service and results.</li>
+                        <li>**Empathy:** Understanding and supporting every student.</li>
+                        <li>**Innovation:** Continuously improving our approach.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Values -->
-    <section class="py-20 bg-white">
+    <!-- Why Choose Us Section -->
+    <section class="py-20 lg:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-12 text-center text-gray-800 animate-fade-in">Our Values</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center group hover:bg-gradient-to-br from-lighter-blue to-white hover:shadow-xl rounded-xl p-8 transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-light-blue rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-16 text-center text-gray-800 section-heading-underline animate-on-scroll">Why Choose Global Grads?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Feature 1 -->
+                <div class="text-center group bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-light-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow">
+                        <i class="fas fa-user-tie text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Expert Guidance</h3>
+                    <p class="text-gray-600 leading-relaxed">Benefit from our team's extensive experience and deep knowledge of international education systems and admission processes.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="text-center group bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-light-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow">
                         <i class="fas fa-handshake text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Integrity</h3>
-                    <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">We maintain the highest standards of honesty and transparency in all our interactions.</p>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Personalized Support</h3>
+                    <p class="text-gray-600 leading-relaxed">Receive tailored advice and support, from course selection to visa applications, designed to meet your unique needs and aspirations.</p>
                 </div>
-                <div class="text-center group hover:bg-gradient-to-br from-lighter-blue to-white hover:shadow-xl rounded-xl p-8 transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-light-blue rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                        <i class="fas fa-users text-2xl text-white"></i>
+                <!-- Feature 3 -->
+                <div class="text-center group bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-light-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow">
+                        <i class="fas fa-network-wired text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Excellence</h3>
-                    <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">We strive for excellence in everything we do, ensuring the best outcomes for our students.</p>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Global Network</h3>
+                    <p class="text-gray-600 leading-relaxed">Access our vast network of partner universities and institutions across diverse study destinations worldwide.</p>
                 </div>
-                <div class="text-center group hover:bg-gradient-to-br from-lighter-blue to-white hover:shadow-xl rounded-xl p-8 transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-light-blue rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                        <i class="fas fa-heart text-2xl text-white"></i>
+                <!-- Feature 4 -->
+                <div class="text-center group bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in animate-on-scroll" style="animation-delay: 0.6s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-light-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow">
+                        <i class="fas fa-chart-line text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Care</h3>
-                    <p class="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">We genuinely care about our students' success and provide personalized support throughout their journey.</p>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Proven Success</h3>
+                    <p class="text-gray-600 leading-relaxed">Join thousands of students who have successfully achieved their academic and career goals with our dedicated support.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="text-center group bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in animate-on-scroll" style="animation-delay: 0.8s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-light-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow">
+                        <i class="fas fa-headset text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Ongoing Support</h3>
+                    <p class="text-gray-600 leading-relaxed">Our commitment extends beyond admission, offering continuous support throughout your study abroad journey.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="text-center group bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in animate-on-scroll" style="animation-delay: 1s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-blue to-light-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow">
+                        <i class="fas fa-lightbulb text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-primary-blue transition-colors duration-300">Innovative Solutions</h3>
+                    <p class="text-gray-600 leading-relaxed">We leverage the latest tools and insights to provide efficient and effective solutions for your educational needs.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-lighter-blue">
+    <!-- Our Impact Section -->
+    <section class="py-20 lg:py-28 bg-gradient-to-br from-lighter-blue to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-12 text-center text-gray-800 animate-fade-in">Meet Our Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-4">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Member" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-primary-blue transition-colors duration-300">John Smith</h3>
-                        <p class="text-gray-600 mb-4">Founder & CEO</p>
-                        <div class="flex justify-center space-x-3">
-                            <a href="#" class="w-8 h-8 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                                <i class="fab fa-linkedin-in text-sm"></i>
-                            </a>
-                            <a href="#" class="w-8 h-8 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                                <i class="fab fa-twitter text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
+            <h2 class="text-4xl lg:text-5xl font-bold mb-16 text-center text-gray-800 section-heading-underline animate-on-scroll">Our Impact in Numbers</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+                <div class="bg-white rounded-xl p-8 shadow-lg animate-scale-in animate-on-scroll">
+                    <div class="text-primary-blue text-6xl font-extrabold mb-4 animate-pulse-custom">10K+</div>
+                    <p class="text-xl font-semibold text-gray-800">Students Guided</p>
+                    <p class="text-gray-600 text-sm mt-2">Successfully placed worldwide</p>
                 </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-4">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Member" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-primary-blue transition-colors duration-300">Sarah Johnson</h3>
-                        <p class="text-gray-600 mb-4">Head of Admissions</p>
-                        <div class="flex justify-center space-x-3">
-                            <a href="#" class="w-8 h-8 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                                <i class="fab fa-linkedin-in text-sm"></i>
-                            </a>
-                            <a href="#" class="w-8 h-8 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                                <i class="fab fa-twitter text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg animate-scale-in animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="text-primary-blue text-6xl font-extrabold mb-4 animate-pulse-custom">50+</div>
+                    <p class="text-xl font-semibold text-gray-800">Countries</p>
+                    <p class="text-gray-600 text-sm mt-2">Diverse study destinations</p>
                 </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-4">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Member" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-primary-blue transition-colors duration-300">Michael Brown</h3>
-                        <p class="text-gray-600 mb-4">Visa Specialist</p>
-                        <div class="flex justify-center space-x-3">
-                            <a href="#" class="w-8 h-8 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                                <i class="fab fa-linkedin-in text-sm"></i>
-                            </a>
-                            <a href="#" class="w-8 h-8 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
-                                <i class="fab fa-twitter text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg animate-scale-in animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="text-primary-blue text-6xl font-extrabold mb-4 animate-pulse-custom">500+</div>
+                    <p class="text-xl font-semibold text-gray-800">Partner Universities</p>
+                    <p class="text-gray-600 text-sm mt-2">Global network of institutions</p>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg animate-scale-in animate-on-scroll" style="animation-delay: 0.6s;">
+                    <div class="text-primary-blue text-6xl font-extrabold mb-4 animate-pulse-custom">98%</div>
+                    <p class="text-xl font-semibold text-gray-800">Visa Success Rate</p>
+                    <p class="text-gray-600 text-sm mt-2">High approval for student visas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Partnerships Section -->
+    <section class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-16 text-center text-gray-800 section-heading-underline animate-on-scroll">Our Valued Partnerships</h2>
+            <p class="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12 animate-on-scroll">
+                We collaborate with leading educational institutions and organizations worldwide to provide you with the best opportunities.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
+                <!-- Placeholder Logos - Replace with actual logos -->
+                <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in animate-on-scroll">
+                    <img src="/uni/uow.png" alt="University A Logo" class="h-20 w-auto object-contain mx-auto">
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in animate-on-scroll" style="animation-delay: 0.1s;">
+                    <img src="/uni/gem.svg" alt="College B Logo" class="h-20 w-auto object-contain mx-auto">
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in animate-on-scroll" style="animation-delay: 0.2s;">
+                    <img src="/uni/University_of_Edinburgh-Logo.wine.png" alt="Institute C Logo" class="h-20 w-auto object-contain mx-auto">
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in animate-on-scroll" style="animation-delay: 0.3s;">
+                    <img src="/uni/TMU_logo.svg.png" alt="Organization D Logo" class="h-20 w-auto object-contain mx-auto">
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in animate-on-scroll" style="animation-delay: 0.4s;">
+                    <img src="uni/university-of-toronto-logo-png_seeklogo-258836.png" alt="School E Logo" class="h-20 w-auto object-contain mx-auto">
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in animate-on-scroll" style="animation-delay: 0.5s;">
+                    <img src="/uni/arizona-state-university.svg" alt="Education Partner F Logo" class="h-20 w-auto object-contain mx-auto">
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in animate-on-scroll" style="animation-delay: 0.6s;">
+                    <img src="uni/university-of-huddersfield-logo-black-and-white.png" alt="University G Logo" class="h-20 w-auto object-contain mx-auto">
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-scale-in animate-on-scroll" style="animation-delay: 0.7s;">
+                    <img src="/uni/middlesex-university-logo-png_seeklogo-179347.png" alt="Partner H Logo" class="h-20 w-auto object-contain mx-auto">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-gradient-to-r from-primary-blue to-dark-blue text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-6 animate-fade-in">Ready to Start Your Journey?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">Join thousands of students who have achieved their dreams with Global Grads Consulting.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="contact.html" class="group bg-white text-primary-blue px-8 py-4 rounded-full font-medium hover:shadow-xl transition-all duration-300 inline-block transform hover:scale-105 hover:-translate-y-1">
-                    <i class="fas fa-envelope mr-2 group-hover:rotate-12 transition-transform duration-300"></i>Contact Us
+    <section class="bg-gradient-to-r from-primary-blue to-dark-blue text-white py-20 lg:py-28 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 drop-shadow-lg animate-fade-in-up">Your Global Future Awaits!</h2>
+            <p class="text-xl lg:text-2xl mb-10 opacity-90 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                Ready to take the first step towards an enriching international education experience? We're here to guide you.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.4s;">
+                <a href="contact.html" class="group bg-white text-primary-blue px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 inline-block transform hover:scale-105 hover:-translate-y-1">
+                    <i class="fas fa-headset mr-2 group-hover:rotate-12 transition-transform duration-300"></i>Get in Touch
                 </a>
-                <a href="applynow.html" class="group border-2 border-white text-white px-8 py-4 rounded-full font-medium hover:bg-white hover:text-primary-blue transition-all duration-300 inline-block transform hover:scale-105 hover:-translate-y-1">
-                    <i class="fas fa-rocket mr-2 group-hover:rotate-12 transition-transform duration-300"></i>Apply Now
+                <a href="applynow.html" class="group border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary-blue transition-all duration-300 inline-block transform hover:scale-105 hover:-translate-y-1">
+                    <i class="fas fa-graduation-cap mr-2 group-hover:animate-pulse-custom"></i>Apply Today
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16">
+    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 lg:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center mb-6 group">
-                        <a href="index.html" class="transition-transform duration-300 hover:scale-105">
-                            <img src="assets/wl.jpeg" alt="Global Grads Logo" class="h-12 w-auto group-hover:drop-shadow-lg transition-all duration-300">
+                        <a href="index.html" class="transition-transform duration-300 hover:scale-105" aria-label="Global Grads Home">
+                            <img src="/assets/logo (3).png" alt="Global Grads Logo" class="h-12 w-auto group-hover:drop-shadow-lg transition-all duration-300">
                         </a>
                     </div>
-                    <p class="text-gray-300 mb-6 leading-relaxed">Global Grads helps students achieve their academic and career aspirations with expert guidance in university admissions, course selection, and visa applications.</p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Global Grads Consulting empowers students to achieve their academic and career aspirations through expert guidance in university admissions, personalized course selection, and seamless visa applications. Your global journey starts here.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
+                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
+                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300" aria-label="Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
+                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300">
+                        <a href="#" class="w-10 h-10 bg-primary-blue rounded-full flex items-center justify-center text-white hover:bg-dark-blue hover:scale-110 transition-all duration-300" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <h4 class="text-lg font-semibold mb-6 border-b-2 border-primary-blue pb-2 inline-block">Quick Links</h4>
                     <ul class="space-y-3">
-                        <li><a href="about.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">Services</a></li>
-                        <li><a href="studydestinations.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">Study Destinations</a></li>
-                        <li><a href="scholarships.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">Scholarships</a></li>
-                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block">Contact</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Services</a></li>
+                        <li><a href="studydestinations.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Study Destinations</a></li>
+                        <li><a href="scholarships.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Scholarships</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Contact</a></li>
                     </ul>
                 </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-6">Newsletter</h4>
-                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for updates</p>
-                    <form class="space-y-3">
-                        <input type="email" placeholder="Your email" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white transition-all duration-300 hover:border-primary-blue">
-                        <button type="submit" class="w-full bg-gradient-to-r from-primary-blue to-dark-blue text-white py-2 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
-                            <i class="fas fa-paper-plane mr-2"></i>Subscribe
-                        </button>
-                    </form>
-                </div>
+              
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-300">&copy; 2024 Global Grads. All rights reserved.</p>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Global Grads Consulting. All rights reserved.</p>
+              
             </div>
         </div>
     </footer>
 
     <!-- Floating Action Button -->
     <div class="fixed bottom-6 right-6 z-50">
-        <a href="https://wa.me/1234567890" target="_blank" class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-bounce-slow">
+        <a href="https://wa.me/1234567890" target="_blank" class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-float-subtle" aria-label="Chat with us on WhatsApp">
             <i class="fab fa-whatsapp text-2xl"></i>
         </a>
     </div>
@@ -362,9 +469,15 @@
         const mobileMenu = document.getElementById('mobile-menu');
         
         menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('animate-fade-in');
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('animate-fade-in-up'); // Use a more appropriate animation for mobile menu
+                menuToggle.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('animate-fade-in-up');
+                menuToggle.setAttribute('aria-expanded', 'false');
             }
         });
 
@@ -384,20 +497,33 @@
 
         // Intersection Observer for animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.1, // Trigger when 10% of the element is visible
+            rootMargin: '0px 0px -50px 0px' // Start animation 50px before element enters viewport bottom
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
+                    // Add 'active' class to trigger CSS animations
+                    entry.target.classList.add('active');
+                    // Stop observing once animated
+                    observer.unobserve(entry.target); 
                 }
             });
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            // Add initial hidden state classes
+            if (el.classList.contains('animate-fade-in-up')) {
+                el.classList.add('opacity-0', 'translate-y-[20px]');
+            } else if (el.classList.contains('animate-scale-in')) {
+                el.classList.add('opacity-0', 'scale-90');
+            } else if (el.classList.contains('animate-slide-in-left')) {
+                el.classList.add('opacity-0', '-translate-x-[50px]');
+            } else if (el.classList.contains('animate-slide-in-right')) {
+                el.classList.add('opacity-0', 'translate-x-[50px]');
+            }
             observer.observe(el);
         });
 
@@ -410,7 +536,18 @@
                 header.classList.remove('bg-white/98', 'shadow-xl');
             }
         });
+
+        // Add a class to the active navigation link
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('text-primary-blue', 'font-bold');
+                    link.querySelector('span')?.classList.add('w-full');
+                }
+            });
+        });
     </script>
 </body>
-</html>
 </html>
