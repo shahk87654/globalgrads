@@ -1,238 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Study Destinations - Globalgrads Consulting</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
             --primary-blue: #0b5394;
             --light-blue: #4a86e8;
             --lighter-blue: #c9daf8;
             --dark-blue: #073763;
-            --white: #ffffff;
         }
         body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #222;
-            margin: 0;
-            padding: 0;
-        }
-        /* Header */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-        .logo img {
-            height: 48px;
-            width: auto;
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 28px;
-        }
-        .nav-links li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-size: 16px;
-            transition: color 0.3s;
-            position: relative;
-        }
-        .nav-links li a.active,
-        .nav-links li a:hover {
-            color: var(--primary-blue);
-        }
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(11, 83, 148, 0.93), rgba(11, 83, 148, 0.93)),
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0 60px 0;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            margin-bottom: 18px;
-            letter-spacing: -1px;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.95;
-        }
-        /* Destinations Grid */
-        .destinations-section {
-            padding: 70px 0 40px 0;
-            background: #f8f9fa;
-        }
-        .destinations-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 40px;
-            letter-spacing: -1px;
-        }
-        .destinations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        .destination-card {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 6px 24px rgba(11,83,148,0.08);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.25s, box-shadow 0.25s;
-            border: 1.5px solid #e3eaf3;
-        }
-        .destination-card:hover {
-            transform: translateY(-7px) scale(1.025);
-            box-shadow: 0 12px 32px rgba(11,83,148,0.13);
-            border-color: var(--primary-blue);
-        }
-        .destination-image {
-            height: 180px;
-            background: #eee;
-            overflow: hidden;
-        }
-        .destination-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        .destination-card:hover .destination-image img {
-            transform: scale(1.06);
-        }
-        .destination-info {
-            padding: 28px 22px 22px 22px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .destination-info h3 {
-            font-size: 1.45rem;
-            color: var(--primary-blue);
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .destination-stats {
-            display: flex;
-            gap: 18px;
-            margin-bottom: 14px;
-        }
-        .stat-item {
-            background: var(--lighter-blue);
-            border-radius: 8px;
-            padding: 8px 14px;
-            text-align: center;
-            min-width: 80px;
-        }
-        .stat-number {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            color: #555;
-        }
-        .destination-features {
-            margin-bottom: 18px;
-        }
-        .feature-item {
-            display: flex;
-            align-items: center;
-            color: #555;
-            font-size: 0.98rem;
-            margin-bottom: 7px;
-        }
-        .feature-item i {
-            color: var(--primary-blue);
-            margin-right: 8px;
-            font-size: 1rem;
-        }
-        .learn-more-btn {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
-            color: white;
-            padding: 10px 0;
-            border-radius: 7px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-top: 10px;
-            transition: background 0.2s;
-            width: 100%;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-        .learn-more-btn:hover {
-            background: linear-gradient(90deg, var(--dark-blue), var(--primary-blue));
-        }
-        /* Footer */
-        .footer {
-            background: var(--primary-blue);
-            color: white;
-            padding: 60px 0 20px;
-            margin-top: 60px;
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto 40px auto;
-            padding: 0 24px;
-        }
-        .footer-about {
-            grid-column: span 1;
-        }
-        .footer-logo {
-            height: 50px;
-            margin-bottom: 20px;
-        }
-        .footer-heading {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 18px;
-            position: relative;
-            padding-bottom: 8px;
+            font-family: 'Inter', sans-serif;
         }
         .footer-heading::after {
             content: '';
@@ -243,454 +26,408 @@
             height: 2px;
             background-color: var(--light-blue);
         }
-        .footer-links {
-            list-style: none;
-        }
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-            display: inline-flex;
-            align-items: center;
-        }
-        .footer-links a:hover {
-            color: white;
-        }
-        .footer-links a i {
-            margin-right: 10px;
-            font-size: 14px;
-        }
-        .contact-info-footer {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        .contact-info-footer i {
-            color: var(--light-blue);
-        }
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .social-links a:hover {
-            background-color: var(--light-blue);
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            transition: transform 0.3s;
-            text-decoration: none;
-        }
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-        }
-        /* Responsive */
-        @media (max-width: 991px) {
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0 12px;
-            }
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 24px 0 12px 24px;
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-10px);
-                transition: all 0.3s;
-                z-index: 1000;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-            }
-            .nav-links.active {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-            .menu-toggle {
-                display: block;
-                z-index: 1001;
-                color: #333;
-            }
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-            }
-        }
-        @media (max-width: 576px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .destinations-title {
-                font-size: 1.5rem;
-            }
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
         }
     </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/logo (3).png" alt="Globalgrads Logo">
-                </a>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#0b5394',
+                        'light-blue': '#4a86e8',
+                        'lighter-blue': '#c9daf8',
+                        'dark-blue': '#073763',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+<!-- Header -->
+    <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-20">
+                <div class="flex items-center group">
+              <a
+              href="index.html"
+              class="flex items-center transition-transform duration-300 hover:scale-105"
+            >
+              <span class="text-2xl font-bold text-primary-blue"
+                >Global Grads</span
+              >
+            </a>
+          </div>
+                <div class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="about.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            About
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="services.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group active-link">
+                            Services
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="studydestinations.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            Study Destinations
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="scholarships.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            Scholarships
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="contact.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            Contact
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                    </ul>
+                    
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="applynow.html" class="bg-gradient-to-r from-primary-blue to-dark-blue text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 group">
+                        <i class="fas fa-rocket mr-2 group-hover:animate-pulse-custom"></i>Apply Now
+                    </a>
+                    <button class="md:hidden text-2xl hover:text-primary-blue transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-blue rounded-md" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle mobile menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden transform transition-all duration-300 ease-in-out origin-top" id="mobile-menu">
+                <ul class="py-4 space-y-4 bg-white rounded-lg shadow-lg mt-4">
+                    <li><a href="about.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">About</a></li>
+                    <li><a href="services.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Services</a></li>
+                    <li><a href="studydestinations.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Study Destinations</a></li>
+                    <li><a href="scholarships.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Scholarships</a></li>
+                    <li><a href="contact.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Contact</a></li>
+                </ul>
             </div>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="studydestinations.html" class="active">Study Destinations</a></li>
-                <li><a href="scholarships.html">Scholarships</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Study Destinations</h1>
-        <p>Explore premier educational destinations and find your perfect study abroad opportunity.</p>
-    </section>
-
+   <section class="hero-bg relative py-24 text-center text-white overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-t from-black to-blue-900 opacity-75"></div>
+    
+    <div class="relative z-10 px-4">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight leading-tight">Study Destinations</h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-95">Explore premier educational destinations and find your perfect study abroad opportunity.</p>
+    </div>
+</section>
     <!-- Destinations Section -->
-    <section class="destinations-section">
-        <div class="destinations-title">Explore Top Study Destinations</div>
-        <div class="destinations-grid">
+    <section class="py-16 bg-gray-50">
+        <h2 class="text-center text-4xl font-bold text-primary-blue mb-10 tracking-tight">Explore Top Study Destinations</h2>
+        <div class="destinations-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
             <!-- USA -->
-            <div class="destination-card">
-                <div class="destination-image">
-                    <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Study in USA">
+            <div class="destination-card bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-all duration-300 border border-gray-200 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue">
+                <div class="destination-image h-48 bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Study in USA" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                 </div>
-                <div class="destination-info">
-                    <h3>United States</h3>
-                    <div class="destination-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">4000+</div>
-                            <div class="stat-label">Universities</div>
+                <div class="destination-info p-7 flex flex-col flex-1 justify-between">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">United States</h3>
+                    <div class="destination-stats flex gap-5 mb-4">
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">4000+</div>
+                            <div class="stat-label text-sm text-gray-600">Universities</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">1M+</div>
-                            <div class="stat-label">Int'l Students</div>
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">1M+</div>
+                            <div class="stat-label text-sm text-gray-600">Int'l Students</div>
                         </div>
                     </div>
-                    <div class="destination-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>World's top ranked universities</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Optional Practical Training (OPT)</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Diverse course options</div>
+                    <div class="destination-features mb-5">
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>World's top ranked universities</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Optional Practical Training (OPT)</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Diverse course options</div>
                     </div>
-                    <a href="allcountries/usa.html" class="learn-more-btn">Learn More</a>
+                    <a href="allcountries/usa.html" class="learn-more-btn block bg-gradient-to-r from-primary-blue to-light-blue text-white py-3 rounded-lg text-center font-semibold text-lg tracking-wide transition-all duration-200 hover:from-dark-blue hover:to-primary-blue">Learn More</a>
                 </div>
             </div>
             <!-- UK -->
-            <div class="destination-card">
-                <div class="destination-image">
-                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad" alt="Study in UK">
+            <div class="destination-card bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-all duration-300 border border-gray-200 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue">
+                <div class="destination-image h-48 bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad" alt="Study in UK" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                 </div>
-                <div class="destination-info">
-                    <h3>United Kingdom</h3>
-                    <div class="destination-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">150+</div>
-                            <div class="stat-label">Universities</div>
+                <div class="destination-info p-7 flex flex-col flex-1 justify-between">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">United Kingdom</h3>
+                    <div class="destination-stats flex gap-5 mb-4">
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">150+</div>
+                            <div class="stat-label text-sm text-gray-600">Universities</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2 Years</div>
-                            <div class="stat-label">Post Study Work</div>
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">2 Years</div>
+                            <div class="stat-label text-sm text-gray-600">Post Study Work</div>
                         </div>
                     </div>
-                    <div class="destination-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Quality education system</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Graduate Immigration Route</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Rich cultural experience</div>
+                    <div class="destination-features mb-5">
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Quality education system</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Graduate Immigration Route</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Rich cultural experience</div>
                     </div>
-                    <a href="allcountries/uk.html" class="learn-more-btn">Learn More</a>
+                    <a href="allcountries/uk.html" class="learn-more-btn block bg-gradient-to-r from-primary-blue to-light-blue text-white py-3 rounded-lg text-center font-semibold text-lg tracking-wide transition-all duration-200 hover:from-dark-blue hover:to-primary-blue">Learn More</a>
                 </div>
             </div>
             <!-- Canada -->
-            <div class="destination-card">
-                <div class="destination-image">
-                    <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225" alt="Study in Canada">
+            <div class="destination-card bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-all duration-300 border border-gray-200 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue">
+                <div class="destination-image h-48 bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225" alt="Study in Canada" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                 </div>
-                <div class="destination-info">
-                    <h3>Canada</h3>
-                    <div class="destination-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">100+</div>
-                            <div class="stat-label">Universities</div>
+                <div class="destination-info p-7 flex flex-col flex-1 justify-between">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">Canada</h3>
+                    <div class="destination-stats flex gap-5 mb-4">
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">100+</div>
+                            <div class="stat-label text-sm text-gray-600">Universities</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3 Years</div>
-                            <div class="stat-label">Work Permit</div>
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">3 Years</div>
+                            <div class="stat-label text-sm text-gray-600">Work Permit</div>
                         </div>
                     </div>
-                    <div class="destination-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Immigration opportunities</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Work while studying</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>High quality of life</div>
+                    <div class="destination-features mb-5">
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Immigration opportunities</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Work while studying</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>High quality of life</div>
                     </div>
-                    <a href="allcountries/canada.html" class="learn-more-btn">Learn More</a>
+                    <a href="allcountries/canada.html" class="learn-more-btn block bg-gradient-to-r from-primary-blue to-light-blue text-white py-3 rounded-lg text-center font-semibold text-lg tracking-wide transition-all duration-200 hover:from-dark-blue hover:to-primary-blue">Learn More</a>
                 </div>
             </div>
             <!-- Australia -->
-            <div class="destination-card">
-                <div class="destination-image">
-                    <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be" alt="Study in Australia">
+            <div class="destination-card bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-all duration-300 border border-gray-200 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue">
+                <div class="destination-image h-48 bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be" alt="Study in Australia" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                 </div>
-                <div class="destination-info">
-                    <h3>Australia</h3>
-                    <div class="destination-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">43</div>
-                            <div class="stat-label">Universities</div>
+                <div class="destination-info p-7 flex flex-col flex-1 justify-between">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">Australia</h3>
+                    <div class="destination-stats flex gap-5 mb-4">
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">43</div>
+                            <div class="stat-label text-sm text-gray-600">Universities</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">4 Years</div>
-                            <div class="stat-label">PSW Visa</div>
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">4 Years</div>
+                            <div class="stat-label text-sm text-gray-600">PSW Visa</div>
                         </div>
                     </div>
-                    <div class="destination-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>High employment rate</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Work while studying</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Excellent lifestyle</div>
+                    <div class="destination-features mb-5">
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>High employment rate</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Work while studying</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Excellent lifestyle</div>
                     </div>
-                    <a href="allcountries/australia.html" class="learn-more-btn">Learn More</a>
+                    <a href="allcountries/australia.html" class="learn-more-btn block bg-gradient-to-r from-primary-blue to-light-blue text-white py-3 rounded-lg text-center font-semibold text-lg tracking-wide transition-all duration-200 hover:from-dark-blue hover:to-primary-blue">Learn More</a>
                 </div>
             </div>
             <!-- Europe -->
-            <div class="destination-card">
-                <div class="destination-image">
-                    <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689" alt="Study in Europe">
+            <div class="destination-card bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-all duration-300 border border-gray-200 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue">
+                <div class="destination-image h-48 bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689" alt="Study in Europe" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                 </div>
-                <div class="destination-info">
-                    <h3>Europe</h3>
-                    <div class="destination-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">30+</div>
-                            <div class="stat-label">Countries</div>
+                <div class="destination-info p-7 flex flex-col flex-1 justify-between">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">Europe</h3>
+                    <div class="destination-stats flex gap-5 mb-4">
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">30+</div>
+                            <div class="stat-label text-sm text-gray-600">Countries</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">1.4M+</div>
-                            <div class="stat-label">Int'l Students</div>
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">1.4M+</div>
+                            <div class="stat-label text-sm text-gray-600">Int'l Students</div>
                         </div>
                     </div>
-                    <div class="destination-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Wide variety of programs</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Affordable tuition options</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Access to Schengen countries</div>
+                    <div class="destination-features mb-5">
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Wide variety of programs</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Affordable tuition options</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Access to Schengen countries</div>
                     </div>
-                    <a href="allcountries/europe.html" class="learn-more-btn">Learn More</a>
+                    <a href="allcountries/europe.html" class="learn-more-btn block bg-gradient-to-r from-primary-blue to-light-blue text-white py-3 rounded-lg text-center font-semibold text-lg tracking-wide transition-all duration-200 hover:from-dark-blue hover:to-primary-blue">Learn More</a>
                 </div>
             </div>
             <!-- France -->
-            <div class="destination-card">
-                <div class="destination-image">
-                    <img src="assets/paris.jpg" alt="Study in France">
+            <div class="destination-card bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-all duration-300 border border-gray-200 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue">
+                <div class="destination-image h-48 bg-gray-100 overflow-hidden">
+                    <img src="https://placehold.co/1350x800/0b5394/ffffff?text=Paris" alt="Study in France" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                 </div>
-                <div class="destination-info">
-                    <h3>France</h3>
-                    <div class="destination-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">350+</div>
-                            <div class="stat-label">Higher Institutions</div>
+                <div class="destination-info p-7 flex flex-col flex-1 justify-between">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">France</h3>
+                    <div class="destination-stats flex gap-5 mb-4">
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">350+</div>
+                            <div class="stat-label text-sm text-gray-600">Higher Institutions</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2 Years</div>
-                            <div class="stat-label">Post Study Stay</div>
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">2 Years</div>
+                            <div class="stat-label text-sm text-gray-600">Post Study Stay</div>
                         </div>
                     </div>
-                    <div class="destination-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Low tuition & living cost</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>English & French-taught programs</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Strong industry ties</div>
+                    <div class="destination-features mb-5">
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Low tuition & living cost</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>English & French-taught programs</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Strong industry ties</div>
                     </div>
-                    <a href="allcountries/france.html" class="learn-more-btn">Learn More</a>
+                    <a href="allcountries/france.html" class="learn-more-btn block bg-gradient-to-r from-primary-blue to-light-blue text-white py-3 rounded-lg text-center font-semibold text-lg tracking-wide transition-all duration-200 hover:from-dark-blue hover:to-primary-blue">Learn More</a>
                 </div>
             </div>
             <!-- Ireland -->
-            <div class="destination-card">
-                <div class="destination-image">
-                    <img src="https://images.unsplash.com/photo-1590089415225-401ed6f9db8e" alt="Study in Ireland">
+            <div class="destination-card bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-all duration-300 border border-gray-200 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue">
+                <div class="destination-image h-48 bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1590089415225-401ed6f9db8e" alt="Study in Ireland" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                 </div>
-                <div class="destination-info">
-                    <h3>Ireland</h3>
-                    <div class="destination-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">34+</div>
-                            <div class="stat-label">Institutions</div>
+                <div class="destination-info p-7 flex flex-col flex-1 justify-between">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">Ireland</h3>
+                    <div class="destination-stats flex gap-5 mb-4">
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">34+</div>
+                            <div class="stat-label text-sm text-gray-600">Institutions</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2 Years</div>
-                            <div class="stat-label">Stay Back</div>
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">2 Years</div>
+                            <div class="stat-label text-sm text-gray-600">Stay Back</div>
                         </div>
                     </div>
-                    <div class="destination-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>English speaking country</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>European work access</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Welcoming culture</div>
+                    <div class="destination-features mb-5">
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>English speaking country</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>European work access</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Welcoming culture</div>
                     </div>
-                    <a href="allcountries/ireland.html" class="learn-more-btn">Learn More</a>
+                    <a href="allcountries/ireland.html" class="learn-more-btn block bg-gradient-to-r from-primary-blue to-light-blue text-white py-3 rounded-lg text-center font-semibold text-lg tracking-wide transition-all duration-200 hover:from-dark-blue hover:to-primary-blue">Learn More</a>
                 </div>
             </div>
             <!-- Wales -->
-            <div class="destination-card">
-                <div class="destination-image">
-                    <img src="https://images.unsplash.com/photo-1486299267070-83823f5448dd" alt="Study in Wales">
+            <div class="destination-card bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col transition-all duration-300 border border-gray-200 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue">
+                <div class="destination-image h-48 bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1486299267070-83823f5448dd" alt="Study in Wales" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                 </div>
-                <div class="destination-info">
-                    <h3>Wales</h3>
-                    <div class="destination-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">8+</div>
-                            <div class="stat-label">Universities</div>
+                <div class="destination-info p-7 flex flex-col flex-1 justify-between">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-3">Wales</h3>
+                    <div class="destination-stats flex gap-5 mb-4">
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">8+</div>
+                            <div class="stat-label text-sm text-gray-600">Universities</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2 Years</div>
-                            <div class="stat-label">PSW Visa</div>
+                        <div class="stat-item bg-lighter-blue rounded-lg px-4 py-2 text-center min-w-[90px]">
+                            <div class="stat-number text-xl font-bold text-primary-blue">2 Years</div>
+                            <div class="stat-label text-sm text-gray-600">PSW Visa</div>
                         </div>
                     </div>
-                    <div class="destination-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Lower living costs</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Quality education</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Beautiful landscapes</div>
+                    <div class="destination-features mb-5">
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Lower living costs</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Quality education</div>
+                        <div class="feature-item flex items-center text-gray-700 text-base mb-2"><i class="fas fa-check-circle text-primary-blue mr-2 text-lg"></i>Beautiful landscapes</div>
                     </div>
-                    <a href="allcountries/wales.html" class="learn-more-btn">Learn More</a>
+                    <a href="allcountries/wales.html" class="learn-more-btn block bg-gradient-to-r from-primary-blue to-light-blue text-white py-3 rounded-lg text-center font-semibold text-lg tracking-wide transition-all duration-200 hover:from-dark-blue hover:to-primary-blue">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-about">
-                <a href="index.html">
-                    <img src="assets/wl.jpeg" alt="Globalgrads Logo" class="footer-logo">
+    <footer class="bg-gray-900 text-white py-16 mt-16">
+        <div class="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto px-6 mb-10">
+            <div class="footer-about col-span-1">
+                <a href="index.html" class="footer-logo-link flex items-center gap-3 mb-5 text-white no-underline">
+                    <span class="text-2xl font-extrabold tracking-wider font-inter">Globalgrads</span>
                 </a>
-                <p>Globalgrads Consulting helps students achieve their academic and career aspirations with expert guidance in university admissions, course selection, and visa applications.</p>
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <p class="text-gray-300 text-base leading-relaxed mb-5">Globalgrads Consulting helps students achieve their academic and career aspirations with expert guidance in university admissions, course selection, and visa applications.</p>
+                <div class="social-links flex gap-4 mt-5">
+                    <a href="#" target="_blank" class="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white text-lg transition-colors duration-300 hover:bg-light-blue"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white text-lg transition-colors duration-300 hover:bg-light-blue"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div>
-                <h4 class="footer-heading">Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
-                    <li><a href="studydestinations.html"><i class="fas fa-chevron-right"></i> Study Destinations</a></li>
+                <h4 class="footer-heading text-lg font-semibold mb-5 relative pb-2">Quick Links</h4>
+                <ul class="footer-links list-none space-y-2">
+                    <li><a href="about.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> About Us</a></li>
+                    <li><a href="services.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> Our Services</a></li>
+                    <li><a href="studydestinations.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> Study Destinations</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="footer-heading">Study Destinations</h4>
-                <ul class="footer-links">
-                    <li><a href="allcountries/france.html"><i class="fas fa-chevron-right"></i> France</a></li>
-                    <li><a href="allcountries/usa.html"><i class="fas fa-chevron-right"></i> United States</a></li>
-                    <li><a href="allcountries/uk.html"><i class="fas fa-chevron-right"></i> United Kingdom</a></li>
-                    <li><a href="allcountries/canada.html"><i class="fas fa-chevron-right"></i> Canada</a></li>
-                    <li><a href="allcountries/australia.html"><i class="fas fa-chevron-right"></i> Australia</a></li>
-                    <li><a href="allcountries/ireland.html"><i class="fas fa-chevron-right"></i> Ireland</a></li>
-                    <li><a href="allcountries/wales.html"><i class="fas fa-chevron-right"></i> Wales</a></li>
-                    <li><a href="allcountries/europe.html"><i class="fas fa-chevron-right"></i> Europe</a></li>
+                <h4 class="footer-heading text-lg font-semibold mb-5 relative pb-2">Study Destinations</h4>
+                <ul class="footer-links list-none space-y-2">
+                    <li><a href="allcountries/france.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> France</a></li>
+                    <li><a href="allcountries/usa.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> United States</a></li>
+                    <li><a href="allcountries/uk.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> United Kingdom</a></li>
+                    <li><a href="allcountries/canada.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> Canada</a></li>
+                    <li><a href="allcountries/australia.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> Australia</a></li>
+                    <li><a href="allcountries/ireland.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> Ireland</a></li>
+                    <li><a href="allcountries/wales.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> Wales</a></li>
+                    <li><a href="allcountries/europe.html" class="text-gray-300 no-underline transition-colors duration-300 hover:text-white flex items-center"><i class="fas fa-chevron-right text-light-blue text-sm mr-3"></i> Europe</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
-                <h4 class="footer-heading">Contact Us</h4>
-                <div class="contact-info-footer">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>123 Education Street, Suite 101<br>Academic City, ED 12345</div>
+                <h4 class="footer-heading text-lg font-semibold mb-5 relative pb-2">Contact Us</h4>
+                <div class="contact-info-footer flex items-start gap-4 mb-4">
+                    <i class="fas fa-map-marker-alt text-light-blue text-lg mt-1"></i>
+                    <div class="text-gray-300">123 Education Street, Suite 101<br>Academic City, ED 12345</div>
                 </div>
-                <div class="contact-info-footer">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>+92 3004074318</div>
+                <div class="contact-info-footer flex items-start gap-4 mb-4">
+                    <i class="fas fa-phone-alt text-light-blue text-lg mt-1"></i>
+                    <div class="text-gray-300">+92 3004074318</div>
                 </div>
-                <div class="contact-info-footer">
-                    <i class="fas fa-envelope"></i>
-                    <div>info@Globalgrads.com</div>
+                <div class="contact-info-footer flex items-start gap-4 mb-4">
+                    <i class="fas fa-envelope text-light-blue text-lg mt-1"></i>
+                    <div class="text-gray-300">info@Globalgrads.com</div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Globalgrads Consulting. All rights reserved.</p>
+        <div class="footer-bottom text-center pt-5 border-t border-gray-700/50">
+            <p class="text-gray-400 text-sm">&copy; 2024 Globalgrads Consulting. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/923004074318" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/923004074318" class="whatsapp-btn fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white text-3xl shadow-lg z-50 transition-transform duration-300 hover:scale-110" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Mobile menu toggle
+      tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#0b5394',
+                        'light-blue': '#4a86e8',
+                        'lighter-blue': '#c9daf8',
+                        'dark-blue': '#073763',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+
+        // NEW JAVASCRIPT FOR MOBILE MENU TOGGLE
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            const menuIcon = menuToggle.querySelector('i');
-            function toggleMenu() {
-                navLinks.classList.toggle('active');
-                menuIcon.classList.toggle('fa-bars');
-                menuIcon.classList.toggle('fa-times');
+            const menuToggleButton = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggleButton && mobileMenu) {
+                menuToggleButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+
+                    const menuIcon = menuToggleButton.querySelector('i');
+                    if (menuIcon) {
+                        if (mobileMenu.classList.contains('hidden')) {
+                            menuIcon.classList.remove('fa-times');
+                            menuIcon.classList.add('fa-bars');
+                            menuToggleButton.setAttribute('aria-expanded', 'false');
+                        } else {
+                            menuIcon.classList.remove('fa-bars');
+                            menuIcon.classList.add('fa-times');
+                            menuToggleButton.setAttribute('aria-expanded', 'true');
+                        }
+                    }
+                });
             }
-            menuToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleMenu();
-            });
-            document.addEventListener('click', (e) => {
-                if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    menuIcon.classList.add('fa-bars');
-                    menuIcon.classList.remove('fa-times');
-                }
-            });
         });
+    </script>
     </script>
 </body>
 </html>

@@ -5,209 +5,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scholarships - Globalgrads Consulting</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Custom CSS Variables */
         :root {
             --primary-blue: #0b5394;
             --light-blue: #4a86e8;
-            --lighter-blue: #c9daf8;
+            --lighter-blue: #e0f2fe; /* Updated for a softer light blue */
             --dark-blue: #073763;
             --white: #ffffff;
+            --gray-text: #4a5568; /* Darker gray for better readability */
         }
+
+        /* Base Body Styles */
         body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: #f8f9fa;
-            color: #222;
+            color: var(--gray-text);
             margin: 0;
             padding: 0;
         }
-        /* Header */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-        .logo img {
-            height: 48px;
-            width: auto;
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 28px;
-        }
-        .nav-links li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-size: 16px;
-            transition: color 0.3s;
+
+        /* Custom CSS for footer heading underline */
+        .footer-heading {
             position: relative;
-        }
-        .nav-links li a.active,
-        .nav-links li a:hover {
-            color: var(--primary-blue);
-        }
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(11, 83, 148, 0.93), rgba(11, 83, 148, 0.93)),
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0 60px 0;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            margin-bottom: 18px;
-            letter-spacing: -1px;
-        }
-        .hero p {
+            padding-bottom: 8px; /* Space for the underline */
+            margin-bottom: 20px;
             font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.95;
+            font-weight: 700;
+            color: var(--white);
         }
-        /* Scholarships Grid */
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--light-blue);
+        }
+
+        /* Custom animation for rocket icon */
+        @keyframes pulse-custom {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        .group:hover .group-hover\:animate-pulse-custom {
+            animation: pulse-custom 1s infinite;
+        }
+
+        /* Scholarships Section Styling */
         .scholarships-section {
             padding: 70px 0 40px 0;
             background: #f8f9fa;
         }
         .scholarships-title {
             text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.75rem; /* Slightly larger title */
+            font-weight: 800; /* Bolder title */
             color: var(--primary-blue);
-            margin-bottom: 40px;
-            letter-spacing: -1px;
+            margin-bottom: 50px; /* More space below title */
+            letter-spacing: -1.5px;
         }
         .scholarships-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minmax for better flexibility */
             gap: 32px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
+
+        /* Scholarship Card Redesign */
         .scholarship-card {
             background: white;
-            border-radius: 18px;
+            border-radius: 16px; /* Slightly more rounded */
             overflow: hidden;
-            box-shadow: 0 6px 24px rgba(11,83,148,0.08);
+            box-shadow: 0 8px 25px rgba(11,83,148,0.07); /* Softer, more diffused shadow */
             display: flex;
             flex-direction: column;
-            transition: transform 0.25s, box-shadow 0.25s;
-            border: 1.5px solid #e3eaf3;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Smoother transitions */
+            border: 1px solid #e3eaf3; /* Thinner, subtle border */
+            position: relative; /* For potential overlay effects */
         }
         .scholarship-card:hover {
-            transform: translateY(-7px) scale(1.025);
-            box-shadow: 0 12px 32px rgba(11,83,148,0.13);
-            border-color: var(--primary-blue);
+            transform: translateY(-8px) scale(1.02); /* More pronounced lift and slight scale */
+            box-shadow: 0 16px 40px rgba(11,83,148,0.15); /* Stronger shadow on hover */
+            border-color: var(--light-blue); /* Highlight border on hover */
         }
+
         .scholarship-image {
-            height: 180px;
-            background: #eee;
+            height: 190px; /* Slightly taller image area */
+            background: #f0f4f8; /* Lighter placeholder background */
             overflow: hidden;
+            border-bottom: 1px solid #f0f4f8; /* Separator for image */
         }
         .scholarship-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.4s ease-out; /* Slower, smoother image zoom */
         }
         .scholarship-card:hover .scholarship-image img {
-            transform: scale(1.06);
+            transform: scale(1.08); /* More zoom on hover */
         }
+
         .scholarship-info {
-            padding: 28px 22px 22px 22px;
+            padding: 24px; /* Consistent padding */
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
         .scholarship-info h3 {
-            font-size: 1.45rem;
+            font-size: 1.5rem; /* Larger title for clarity */
             color: var(--primary-blue);
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
+
         .scholarship-stats {
             display: flex;
-            gap: 18px;
-            margin-bottom: 14px;
+            gap: 16px; /* Slightly less gap */
+            margin-bottom: 20px; /* More space below stats */
+            flex-wrap: wrap; /* Allow stats to wrap on smaller screens */
         }
         .stat-item {
-            background: var(--lighter-blue);
-            border-radius: 8px;
-            padding: 8px 14px;
+            background: var(--lighter-blue); /* Use the softer light blue */
+            border-radius: 10px; /* More rounded pill shape */
+            padding: 10px 18px; /* More padding */
             text-align: center;
-            min-width: 80px;
+            min-width: 90px; /* Slightly wider */
+            flex-grow: 1; /* Allow items to grow */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .scholarship-card:hover .stat-item {
+            background-color: var(--light-blue); /* Highlight stats on card hover */
+            color: white;
+        }
+        .scholarship-card:hover .stat-item .stat-number,
+        .scholarship-card:hover .stat-item .stat-label {
+            color: white; /* Ensure text color changes on hover */
         }
         .stat-number {
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1.2rem; /* Larger number */
+            font-weight: 800; /* Bolder number */
             color: var(--primary-blue);
+            margin-bottom: 4px;
+            transition: color 0.3s ease;
         }
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.9rem; /* Slightly larger label */
             color: #555;
+            transition: color 0.3s ease;
         }
+
         .scholarship-features {
-            margin-bottom: 18px;
+            margin-bottom: 24px; /* More space below features */
         }
         .feature-item {
             display: flex;
             align-items: center;
-            color: #555;
-            font-size: 0.98rem;
-            margin-bottom: 7px;
+            color: var(--gray-text);
+            font-size: 0.95rem; /* Slightly smaller for better fit */
+            margin-bottom: 10px; /* More spacing between features */
         }
         .feature-item i {
-            color: var(--primary-blue);
-            margin-right: 8px;
-            font-size: 1rem;
+            color: var(--light-blue); /* Lighter blue for icons */
+            margin-right: 10px;
+            font-size: 1.1rem; /* Slightly larger icon */
         }
+
         .learn-more-btn {
-            display: inline-block;
+            display: block; /* Use block for full width */
             background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
             color: white;
-            padding: 10px 0;
-            border-radius: 7px;
+            padding: 14px 0; /* More vertical padding */
+            border-radius: 10px; /* More rounded button */
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-top: 10px;
-            transition: background 0.2s;
-            width: 100%;
+            font-weight: 700; /* Bolder text */
+            font-size: 1.05rem; /* Slightly larger font */
             text-align: center;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px; /* More letter spacing */
+            transition: all 0.3s ease; /* Smooth transition for all properties */
+            box-shadow: 0 4px 15px rgba(11,83,148,0.2); /* Subtle button shadow */
         }
         .learn-more-btn:hover {
-            background: linear-gradient(90deg, var(--dark-blue), var(--primary-blue));
+            background: linear-gradient(90deg, var(--dark-blue), var(--primary-blue)); /* Darker gradient on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 6px 20px rgba(11,83,148,0.3); /* More prominent shadow on hover */
         }
+
         /* Footer */
         .footer {
-            background: var(--primary-blue);
+            background: #192530;
             color: white;
             padding: 60px 0 20px;
             margin-top: 60px;
@@ -227,24 +228,9 @@
             height: 50px;
             margin-bottom: 20px;
         }
-        .footer-heading {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 18px;
-            position: relative;
-            padding-bottom: 8px;
-        }
-        .footer-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--light-blue);
-        }
         .footer-links {
             list-style: none;
+            padding: 0; /* Remove default list padding */
         }
         .footer-links li {
             margin-bottom: 10px;
@@ -268,9 +254,12 @@
             align-items: flex-start;
             gap: 15px;
             margin-bottom: 15px;
+            color: #e3eaf3; /* Light gray for contact info */
         }
         .contact-info-footer i {
             color: var(--light-blue);
+            font-size: 1.1rem; /* Slightly larger icon */
+            flex-shrink: 0; /* Prevent icon from shrinking */
         }
         .social-links {
             display: flex;
@@ -296,6 +285,8 @@
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 0.9rem;
         }
         /* WhatsApp Button */
         .whatsapp-btn {
@@ -319,6 +310,7 @@
         .whatsapp-btn:hover {
             transform: scale(1.1);
         }
+
         /* Responsive */
         @media (max-width: 991px) {
             .footer-content {
@@ -326,33 +318,19 @@
             }
         }
         @media (max-width: 768px) {
-            .navbar {
-                padding: 0 12px;
-            }
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 24px 0 12px 24px;
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-10px);
-                transition: all 0.3s;
-                z-index: 1000;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-            }
-            .nav-links.active {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 24px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .scholarships-title {
+                font-size: 2.25rem; /* Adjusted for better mobile view */
+                margin-bottom: 40px;
+            }
+            .scholarships-grid {
+                padding: 0 16px; /* Reduced padding on smaller screens */
             }
         }
         @media (max-width: 576px) {
@@ -363,71 +341,127 @@
                 font-size: 2rem;
             }
             .scholarships-title {
-                font-size: 1.5rem;
+                font-size: 1.75rem; /* Further adjusted for very small screens */
+                margin-bottom: 30px;
+            }
+            .scholarship-card {
+                margin: 0 auto; /* Center cards on very small screens */
+                max-width: 350px; /* Max width for single column */
+            }
+            .scholarship-stats {
+                flex-direction: column; /* Stack stats vertically */
+                gap: 10px;
+            }
+            .stat-item {
+                width: 100%; /* Full width for stacked stats */
             }
         }
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#0b5394',
+                        'light-blue': '#4a86e8',
+                        'lighter-blue': '#e0f2fe',
+                        'dark-blue': '#073763',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        'pulse-custom': {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.1)' },
+                        }
+                    },
+                    animation: {
+                        'pulse-custom': 'pulse-custom 1s infinite',
+                    }
+                },
+            },
+        };
+    </script>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/logo (3).png" alt="Globalgrads Logo">
-                </a>
+    <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-20">
+                <div class="flex items-center group">
+                    <a
+                    href="index.html"
+                    class="flex items-center transition-transform duration-300 hover:scale-105"
+                    >
+                    <span class="text-2xl font-bold text-primary-blue"
+                        >Global Grads</span
+                    >
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="about.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            About
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="services.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group active-link">
+                            Services
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="studydestinations.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            Study Destinations
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="scholarships.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            Scholarships
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="contact.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            Contact
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="applynow.html" class="bg-gradient-to-r from-primary-blue to-dark-blue text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 group">
+                        <i class="fas fa-rocket mr-2 group-hover:animate-pulse-custom"></i>Apply Now
+                    </a>
+                    <button class="md:hidden text-2xl hover:text-primary-blue transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-blue rounded-md" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle mobile menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden transform transition-all duration-300 ease-in-out origin-top" id="mobile-menu">
+                <ul class="py-4 space-y-4 bg-white rounded-lg shadow-lg mt-4">
+                    <li><a href="about.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">About</a></li>
+                    <li><a href="services.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Services</a></li>
+                    <li><a href="studydestinations.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Study Destinations</a></li>
+                    <li><a href="scholarships.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Scholarships</a></li>
+                    <li><a href="contact.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Contact</a></li>
+                </ul>
             </div>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="studydestinations.html">Study Destinations</a></li>
-                <li><a href="scholarships.html" class="active">Scholarships</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Available Scholarships</h1>
-        <p>Explore various scholarship opportunities to fund your international education</p>
-    </section>
+    <!-- Hero Section (Placeholder - as it was not provided in the original code, but often present) -->
+    <!-- <section class="hero-bg bg-primary-blue text-white flex items-center justify-center text-center py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">Find Your Dream Scholarship</h1>
+            <p class="text-lg sm:text-xl opacity-90">Explore a world of opportunities to fund your education abroad.</p>
+        </div>
+    </section> -->
 
     <!-- Scholarships Section -->
     <section class="scholarships-section">
-        <div class="scholarships-title">Top Scholarships for International Students</div>
+        <h2 class="scholarships-title">Explore Global Scholarship Opportunities</h2>
         <div class="scholarships-grid">
-            <div class="scholarship-card">
-                <div class="scholarship-image">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1" alt="Fulbright Scholarship">
-                </div>
-                <div class="scholarship-info">
-                    <h3>Fulbright Scholarship</h3>
-                    <div class="scholarship-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Coverage</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">USA</div>
-                            <div class="stat-label">Country</div>
-                        </div>
-                    </div>
-                    <div class="scholarship-features">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Full tuition coverage</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Monthly stipend included</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i>Health insurance provided</div>
-                    </div>
-                    <a href="applynow.html" class="learn-more-btn">Apply Now</a>
-                </div>
-            </div>
 
+            <!-- Scholarship Card 1: Commonwealth Scholarship -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" alt="Commonwealth Scholarship">
+                    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=Commonwealth';" alt="Commonwealth Scholarship">
                 </div>
                 <div class="scholarship-info">
                     <h3>Commonwealth Scholarship</h3>
@@ -449,9 +483,11 @@
                     <a href="applynow.html" class="learn-more-btn">Apply Now</a>
                 </div>
             </div>
-                <div class="scholarship-card">
+
+            <!-- Scholarship Card 2: Erasmus Mundus -->
+            <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655" alt="Erasmus Mundus">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=Erasmus Mundus';" alt="Erasmus Mundus">
                 </div>
                 <div class="scholarship-info">
                     <h3>Erasmus Mundus Scholarship</h3>
@@ -474,9 +510,10 @@
                 </div>
             </div>
 
+            <!-- Scholarship Card 3: MEXT Scholarship Japan -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd" alt="MEXT Scholarship">
+                    <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=MEXT Japan';" alt="MEXT Scholarship">
                 </div>
                 <div class="scholarship-info">
                     <h3>MEXT Scholarship Japan</h3>
@@ -499,9 +536,10 @@
                 </div>
             </div>
 
+            <!-- Scholarship Card 4: Chevening Scholarship -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb" alt="Chevening Scholarship">
+                    <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=Chevening';" alt="Chevening Scholarship">
                 </div>
                 <div class="scholarship-info">
                     <h3>Chevening Scholarship</h3>
@@ -524,9 +562,10 @@
                 </div>
             </div>
 
+            <!-- Scholarship Card 5: Australia Awards -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be" alt="Australia Awards">
+                    <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=Australia Awards';" alt="Australia Awards">
                 </div>
                 <div class="scholarship-info">
                     <h3>Australia Awards</h3>
@@ -549,9 +588,10 @@
                 </div>
             </div>
 
+            <!-- Scholarship Card 6: DAAD Scholarship -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="assets/daad.jpg" alt="DAAD Scholarship">
+                    <img src="https://images.unsplash.com/photo-1543781223-f363c46e033d?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=DAAD Scholarship';" alt="DAAD Scholarship">
                 </div>
                 <div class="scholarship-info">
                     <h3>DAAD Scholarship</h3>
@@ -574,9 +614,10 @@
                 </div>
             </div>
 
+            <!-- Scholarship Card 7: Eiffel Excellence Scholarship -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="assets/eef.jpg" alt="Eiffel Excellence Scholarship">
+                    <img src="https://images.unsplash.com/photo-1502602898661-a31853a479a7?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=Eiffel Excellence';" alt="Eiffel Excellence Scholarship">
                 </div>
                 <div class="scholarship-info">
                     <h3>Eiffel Excellence Scholarship</h3>
@@ -599,9 +640,10 @@
                 </div>
             </div>
 
+            <!-- Scholarship Card 8: Vanier Canada Graduate Scholarships -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="assets/can.png" alt="Vanier Canada Graduate Scholarships">
+                    <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=Vanier Canada';" alt="Vanier Canada Graduate Scholarships">
                 </div>
                 <div class="scholarship-info">
                     <h3>Vanier Canada Graduate Scholarships</h3>
@@ -624,9 +666,10 @@
                 </div>
             </div>
 
+            <!-- Scholarship Card 9: Swiss Government Excellence Scholarships -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="assets/swiss.jpeg" alt="Swiss Government Excellence Scholarships">
+                    <img src="https://images.unsplash.com/photo-1507608869274-d3b79c51852f?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=Swiss Government';" alt="Swiss Government Excellence Scholarships">
                 </div>
                 <div class="scholarship-info">
                     <h3>Swiss Government Excellence Scholarships</h3>
@@ -649,9 +692,10 @@
                 </div>
             </div>
 
+            <!-- Scholarship Card 10: Chinese Government Scholarship -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="assets/china-scholarship-council.jpg" alt="Chinese Government Scholarship">
+                    <img src="https://images.unsplash.com/photo-1547483647-7988358487b4?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=Chinese Government';" alt="Chinese Government Scholarship">
                 </div>
                 <div class="scholarship-info">
                     <h3>Chinese Government Scholarship</h3>
@@ -674,9 +718,10 @@
                 </div>
             </div>
 
+            <!-- Scholarship Card 11: New Zealand Manaaki Scholarships -->
             <div class="scholarship-card">
                 <div class="scholarship-image">
-                    <img src="assets/nz.jpg" alt="New Zealand Manaaki Scholarships">
+                    <img src="https://images.unsplash.com/photo-1507608869274-d3b79c51852f?auto=format&fit=crop&w=600&q=80" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0f2fe/0b5394?text=New Zealand Manaaki';" alt="New Zealand Manaaki Scholarships">
                 </div>
                 <div class="scholarship-info">
                     <h3>New Zealand Manaaki Scholarships</h3>
@@ -698,94 +743,82 @@
                     <a href="applynow.html" class="learn-more-btn">Apply Now</a>
                 </div>
             </div>
+
         </div>
     </section>
 
-  <!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <!-- About -->
-        <div class="footer-about">
-            <img src="assets/logo (3).png" alt="Global Grads Logo" class="footer-logo">
-            <p>Global Grads Consulting empowers students to achieve their academic and career aspirations through expert guidance in university admissions, personalized course selection, and seamless visa applications.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- About -->
+            <div class="footer-about">
+                <a href="index.html" style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px; text-decoration: none;">
+                    <span style="font-size: 1.45rem; font-weight: 800; color: #ffffff; letter-spacing: 1px; font-family: 'Inter', 'Segoe UI', sans-serif;">Globalgrads</span>
+                </a>
+                <p style="color: #e3eaf3; font-size: 1rem; margin-bottom: 18px;">Globalgrads Consulting empowers students to achieve their academic and career aspirations through expert guidance in university admissions, personalized course selection, and seamless visa applications.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank" style="background: rgba(255,255,255,0.13);"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" style="background: rgba(255,255,255,0.13);"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
+                    <li><a href="studydestinations.html"><i class="fas fa-angle-right"></i> Study Destinations</a></li>
+                    <li><a href="scholarships.html"><i class="fas fa-angle-right"></i> Scholarships</a></li>
+                    <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3 class="footer-heading">Contact</h3>
+                <div class="contact-info-footer">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+92 300 4074318</span>
+                </div>
+                <div class="contact-info-footer">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@globalgrads.us</span>
+                </div>
+                <div class="contact-info-footer">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lahore, Pakistan</span>
+                </div>
+            </div>
+
+            <!-- Newsletter or Empty -->
+            <div>
+                <h3 class="footer-heading">Newsletter</h3>
+                <p style="color: #e3eaf3; font-size: 1rem; margin-bottom: 18px;">Stay updated with the latest scholarship opportunities.</p>
+                <form action="#" method="POST" class="flex flex-col gap-3">
+                    <input type="email" placeholder="Your email" class="p-3 rounded-md bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-light-blue transition-all" />
+                    <button type="submit" class="bg-light-blue text-white py-3 rounded-md font-semibold hover:bg-primary-blue transition-colors">Subscribe</button>
+                </form>
             </div>
         </div>
-
-        <!-- Quick Links -->
-        <div>
-            <h3 class="footer-heading">Quick Links</h3>
-            <ul class="footer-links">
-                <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
-                <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
-                <li><a href="studydestinations.html"><i class="fas fa-angle-right"></i> Study Destinations</a></li>
-                <li><a href="scholarships.html"><i class="fas fa-angle-right"></i> Scholarships</a></li>
-                <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a></li>
-            </ul>
+        <div class="footer-bottom">
+            &copy; 2024 Globalgrads Consulting. All rights reserved.
         </div>
+    </footer>
 
-        <!-- Contact Info -->
-        <div>
-            <h3 class="footer-heading">Contact</h3>
-            <div class="contact-info-footer">
-                <i class="fas fa-phone-alt"></i>
-                <span>+92 300 4074318</span>
-            </div>
-            <div class="contact-info-footer">
-                <i class="fas fa-envelope"></i>
-                <span>info@globalgrads.us</span>
-            </div>
-            <div class="contact-info-footer">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Lahore, Pakistan</span>
-            </div>
-        </div>
-
-        <!-- Newsletter or Empty -->
-        <div>
-            <h3 class="footer-heading">Stay Connected</h3>
-            <p style="color:#ccc;">Reach out to us on WhatsApp anytime or follow us on social media for updates.</p>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2024 Global Grads Consulting. All rights reserved.</p>
-    </div>
-</footer>
-
-    <!-- Floating Action Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <a href="https://wa.me/923004074318" target="_blank" class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-float-subtle" aria-label="Chat with us on WhatsApp">
-            <i class="fab fa-whatsapp text-2xl"></i>
-        </a>
-    </div>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923004074318" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            const menuIcon = menuToggle.querySelector('i');
-            function toggleMenu() {
-                navLinks.classList.toggle('active');
-                menuIcon.classList.toggle('fa-bars');
-                menuIcon.classList.toggle('fa-times');
-            }
-            menuToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleMenu();
-            });
-            document.addEventListener('click', (e) => {
-                if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    menuIcon.classList.add('fa-bars');
-                    menuIcon.classList.remove('fa-times');
-                }
-            });
+        // Mobile menu toggle functionality
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('open'); // Add/remove 'open' class for potential CSS transitions
         });
     </script>
 </body>

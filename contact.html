@@ -24,6 +24,8 @@
               "light-blue": "#4a86e8",
               "lighter-blue": "#c9daf8",
               "dark-blue": "#073763",
+              "deep-gray": "#1a1a1a", /* New: Darker grey for footer */
+              "midnight-blue": "#00204A", /* Darker blue for accents */
             },
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
@@ -153,20 +155,29 @@
         background-size: 200% 200%;
         animation: shimmer 3s linear infinite;
       }
+   
+  .gradient-text {
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
 
       .glass-card {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.9); /* Slightly less opaque */
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.4); /* More defined border */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Softer initial shadow */
       }
 
       .hover-lift {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
       }
 
       .hover-lift:hover {
-        transform: translateY(-12px) scale(1.02);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        transform: translateY(-8px) scale(1.01); /* Less dramatic lift */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+        border-color: rgba(11, 83, 148, 0.5); /* Border color change on hover */
       }
 
       .form-input {
@@ -266,100 +277,64 @@
   </head>
 
   <body class="font-sans overflow-x-hidden text-gray-800">
-    <!-- Header -->
-    <header
-      class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 transition-all duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav class="flex items-center justify-between h-20">
-          <div class="flex items-center group">
-            <a
+     <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-20">
+                <div class="flex items-center group">
+              <a
               href="index.html"
               class="flex items-center transition-transform duration-300 hover:scale-105"
             >
-              <img
-                src="assets/logo (3).png"
-                alt="Globalgrads Consulting Logo"
-                class="h-20 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
-              />
+              <span class="text-2xl font-bold text-primary-blue"
+                >Global Grads</span
+              >
             </a>
           </div>
-
-          <div class="hidden md:block">
-            <ul class="flex space-x-8">
-              <li>
-                <a
-                  href="about.html"
-                  class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group"
-                >
-                  About
-                  <span
-                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="services.html"
-                  class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group"
-                >
-                  Services
-                  <span
-                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="studydestinations.html"
-                  class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group"
-                >
-                  Study Destinations
-                  <span
-                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="scholarships.html"
-                  class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group"
-                >
-                  Scholarships
-                  <span
-                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="contact.html"
-                  class="text-primary-blue font-bold transition-all duration-300 relative group"
-                >
-                  Contact
-                  <span
-                    class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary-blue"
-                  ></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="flex items-center space-x-4">
-            <a
-              href="applynow.html"
-              class="bg-gradient-to-r from-primary-blue to-dark-blue text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <i class="fas fa-rocket mr-2"></i>Apply Now
-            </a>
-            <button
-              class="md:hidden text-2xl hover:text-primary-blue transition-colors duration-300"
-              id="menu-toggle"
-            >
-              <i class="fas fa-bars"></i>
-            </button>
-          </div>
-        </nav>
+                <div class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="about.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            About
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="services.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group active-link">
+                            Services
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="studydestinations.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            Study Destinations
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="scholarships.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            Scholarships
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                        <li><a href="contact.html" class="text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative group">
+                            Contact
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-blue transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="applynow.html" class="bg-gradient-to-r from-primary-blue to-dark-blue text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 group">
+                        <i class="fas fa-rocket mr-2 group-hover:animate-pulse-custom"></i>Apply Now
+                    </a>
+                    <button class="md:hidden text-2xl hover:text-primary-blue transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-blue rounded-md" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle mobile menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden transform transition-all duration-300 ease-in-out origin-top" id="mobile-menu">
+                <ul class="py-4 space-y-4 bg-white rounded-lg shadow-lg mt-4">
+                    <li><a href="about.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">About</a></li>
+                    <li><a href="services.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Services</a></li>
+                    <li><a href="studydestinations.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Study Destinations</a></li>
+                    <li><a href="scholarships.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Scholarships</a></li>
+                    <li><a href="contact.html" class="block text-gray-700 hover:text-primary-blue font-medium px-4 py-2 hover:bg-gray-50 rounded-lg transition-all duration-300">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
         <!-- Mobile Menu -->
         <div
@@ -406,77 +381,47 @@
         </div>
       </div>
     </header>
+<section class="relative text-white py-32 overflow-hidden">
+  <!-- Background Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black to-blue-900 opacity-95"></div>
 
-    <!-- Hero Section -->
-    <section class="relative text-white py-32 overflow-hidden">
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-primary-blue via-dark-blue to-primary-blue opacity-95"
-      ></div>
-      <div
-        class="absolute inset-0 bg-cover bg-center"
-        style="
-          background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-          opacity: 0.2;
-          background-blend-mode: multiply; /* Added for subtle texture */
-        "
-      ></div>
+  <!-- Floating Elements -->
+  <div class="absolute top-16 left-1/4 w-28 h-28 bg-white/5 rounded-full floating-elements"></div>
+  <div class="absolute top-1/3 right-1/4 w-24 h-24 bg-white/5 rounded-full floating-elements"></div>
+  <div class="absolute bottom-20 left-16 w-20 h-20 bg-white/5 rounded-full floating-elements"></div>
+  <div class="absolute bottom-1/4 right-16 w-16 h-16 bg-white/5 rounded-full floating-elements"></div>
+  <div class="absolute top-1/2 left-1/2 w-12 h-12 bg-white/5 rounded-full floating-elements transform -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute top-1/4 left-1/4 w-10 h-10 bg-white/5 rounded-full floating-elements"></div>
 
-      <!-- Floating Elements -->
-      <div
-        class="absolute top-16 left-1/4 w-28 h-28 bg-white/5 rounded-full floating-elements"
-      ></div>
-      <div
-        class="absolute top-1/3 right-1/4 w-24 h-24 bg-white/5 rounded-full floating-elements"
-      ></div>
-      <div
-        class="absolute bottom-20 left-16 w-20 h-20 bg-white/5 rounded-full floating-elements"
-      ></div>
-      <div
-        class="absolute bottom-1/4 right-16 w-16 h-16 bg-white/5 rounded-full floating-elements"
-      ></div>
-      <div
-        class="absolute top-1/2 left-1/2 w-12 h-12 bg-white/5 rounded-full floating-elements transform -translate-x-1/2 -translate-y-1/2"
-      ></div>
-      <div
-        class="absolute top-1/4 left-1/4 w-10 h-10 bg-white/5 rounded-full floating-elements"
-      ></div>
+  <!-- Main Content -->
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 animate-text-reveal" style="animation-delay: 0.2s;">
+      Let's <span class="gradient-text">Connect</span>
+    </h1>
+    <p class="text-lg md:text-xl max-w-4xl mx-auto opacity-90 mb-12 leading-relaxed animate-text-reveal" style="animation-delay: 0.4s;">
+      Get in touch with our experts for personalized guidance on your international education journey
+    </p>
 
+    <!-- Sleek CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-8 justify-center items-center animate-slide-up" style="animation-delay: 0.6s;">
+      <a
+        href="contact.html"
+        class="group glass-card text-primary-blue px-8 py-4 rounded-xl font-semibold text-lg hover-lift animate-glow shadow-lg border-2 border-transparent hover:border-white animate-border-pulse"
+      >
+        <i class="fas fa-envelope mr-3 group-hover:rotate-12 transition-transform duration-300"></i>
+        Send Message
+      </a>
+      <a
+        href="tel:+15551234567"
+        class="group border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-primary-blue transition-all duration-300 hover-lift shadow-lg animate-border-pulse"
+      >
+        <i class="fas fa-phone mr-3 group-hover:rotate-12 transition-transform duration-300"></i>
+        Call Now
+      </a>
+    </div>
+  </div>
+</section>
 
-      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 animate-text-reveal" style="animation-delay: 0.2s;">
-          Let's
-          <span class="gradient-text">Connect</span>
-        </h1>
-        <p class="text-lg md:text-xl max-w-4xl mx-auto opacity-90 mb-12 leading-relaxed animate-text-reveal" style="animation-delay: 0.4s;">
-          Get in touch with our experts for personalized guidance on your
-          international education journey
-        </p>
-
-        <!-- Sleek CTA Buttons -->
-        <div
-          class="flex flex-col sm:flex-row gap-8 justify-center items-center animate-slide-up" style="animation-delay: 0.6s;"
-        >
-          <a
-            href="contact.html"
-            class="group glass-card text-primary-blue px-8 py-4 rounded-xl font-semibold text-lg hover-lift animate-glow shadow-lg border-2 border-transparent hover:border-white animate-border-pulse"
-          >
-            <i
-              class="fas fa-envelope mr-3 group-hover:rotate-12 transition-transform duration-300"
-            ></i
-            >Send Message
-          </a>
-          <a
-            href="tel:+15551234567"
-            class="group border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-primary-blue transition-all duration-300 hover-lift shadow-lg animate-border-pulse"
-          >
-            <i
-              class="fas fa-phone mr-3 group-hover:rotate-12 transition-transform duration-300"
-            ></i
-            >Call Now
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- Contact Cards Section -->
     <section
@@ -655,7 +600,7 @@
         </div>
 
           <!-- Sleek Contact Form -->
-          <div class="animate-slide-right">
+          <div class="animate-slide-right" id="contactFormSection">
             <div
               class="gradient-border rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500"
             >
@@ -824,7 +769,7 @@
               </p>
               <p class="text-gray-600 text-lg mb-4">Academic City, ED 12345</p>
               <a
-                href="#"
+                href="https://www.google.com/maps/search/?api=1&query=123+Education+Street,+Academic+City" target="_blank"
                 class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-blue to-dark-blue text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 <i class="fas fa-directions mr-2"></i>Get Directions
@@ -834,68 +779,6 @@
         </div>
       </div>
     </section>
-
-  <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden; /* Prevent horizontal scroll from blob animation */
-        }
-
-        /* Custom Tailwind Colors (if needed, otherwise use default) */
-        .primary-blue { color: #3b82f6; } /* Example */
-        .light-blue { color: #bfdbfe; } /* Example */
-
-        /* Custom Animations */
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes blob {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            30% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            60% {
-                transform: translate(-20px, 40px) scale(0.9);
-            }
-            80% {
-                transform: translate(10px, -30px) scale(1.05);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fade-in 1s ease-out forwards;
-        }
-
-        .animate-blob {
-            animation: blob 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .animation-delay-2000 { animation-delay: 2s; }
-        .animation-delay-4000 { animation-delay: 4s; }
-
-        /* FAQ Content Transition */
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-        }
-
-        .faq-content.open {
-            max-height: var(--content-height); /* Set dynamically by JS */
-        }
-    </style>
-</head>
-<body class="bg-gray-100">
 
     <!-- FAQ Section -->
     <section class="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -988,40 +871,9 @@
         </div>
     </section>
 
-    <script>
-        // JavaScript for toggling FAQ content
-        function toggleFAQ(element) {
-            const content = element.querySelector('.faq-content');
-            const icon = element.querySelector('i');
-
-            if (content.style.maxHeight) { // If it has a maxHeight, it's open or in transition to close
-                content.style.maxHeight = null; // Collapse it
-                icon.classList.remove('rotate-180');
-            } else {
-                // Set the max-height to the scrollHeight to allow for smooth transition
-                content.style.maxHeight = content.scrollHeight + 'px';
-                icon.classList.add('rotate-180');
-            }
-        }
-
-        // Initial setup to ensure all FAQ contents are collapsed on load
-        document.addEventListener('DOMContentLoaded', () => {
-            const faqContents = document.querySelectorAll('.faq-content');
-            faqContents.forEach(content => {
-                content.style.maxHeight = '0'; // Ensure they are collapsed initially
-            });
-        });
-    </script>
-
-
-
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer
-      class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16"
+      class="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white py-16"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -1031,12 +883,9 @@
                 href="index.html"
                 class="transition-transform duration-300 hover:scale-105"
               >
-                <img
-                  src="assets/wl.jpeg"
-                  alt="Globalgrads Consulting Logo"
-                  class="h-12 w-auto group-hover:drop-shadow-lg transition-all duration-300"
-                />
-              </a>
+                  <a href="index.html" class="inline-block mb-4">
+              <span class="text-xl font-bold text-white">Globalgrads</span>
+            </a>
             </div>
             <p class="text-gray-300 mb-6 leading-relaxed">
               Globalgrads Consulting helps students achieve their academic and
@@ -1113,27 +962,25 @@
           </div>
 
           <div>
-            <!-- Newsletter heading removed -->
-            <p class="text-gray-300 mb-4">
-              <!-- Newsletter subscription text removed -->
-            </p>
-            <form class="space-y-3">
-              <input
-                type="email"
-                placeholder="Your email"
-                class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white transition-all duration-300 hover:border-primary-blue"
-              />
-              <button
-                type="submit"
-                class="w-full bg-gradient-to-r from-primary-blue to-dark-blue text-white py-2 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
-              >
-                <i class="fas fa-paper-plane mr-2"></i>Subscribe
-              </button>
-            </form>
+            <h4 class="text-lg font-semibold mb-6">Contact Info</h4>
+            <ul class="space-y-3">
+                <li>
+                    <i class="fas fa-map-marker-alt text-primary-blue mr-2"></i>
+                    <span class="text-gray-300">123 Global Street, Suite 400, Cityville, State, 12345, Country</span>
+                </li>
+                <li>
+                    <i class="fas fa-phone text-primary-blue mr-2"></i>
+                    <span class="text-gray-300">+1 (555) 123-4567</span>
+                </li>
+                <li>
+                    <i class="fas fa-envelope text-primary-blue mr-2"></i>
+                    <span class="text-gray-300">info@globalgrads.com</span>
+                </li>
+            </ul>
           </div>
         </div>
 
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <div class="border-t border-gray-700 mt-12 pt-8 text-center">
           <p class="text-gray-300">
             &copy; 2024 Globalgrads Consulting. All rights reserved.
           </p>
@@ -1147,14 +994,14 @@
       <a
         href="https://wa.me/1234567890"
         target="_blank"
-        class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-bounce-slow"
+        class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-bounce-soft"
       >
         <i class="fab fa-whatsapp text-2xl"></i>
       </a>
       <!-- Phone Button -->
       <a
         href="tel:+15551234567"
-        class="w-14 h-14 bg-primary-blue rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-pulse-slow"
+        class="w-14 h-14 bg-primary-blue rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-pulse-gentle"
       >
         <i class="fas fa-phone text-xl"></i>
       </a>
@@ -1200,22 +1047,29 @@
         // Close all other FAQ items
         document.querySelectorAll(".faq-content").forEach((item) => {
           if (item !== content) {
-            item.classList.remove("active");
-          }
-        });
-
-        document.querySelectorAll(".faq-item .fas").forEach((item) => {
-          if (item !== icon) {
-            item.style.transform = "rotate(0deg)";
+            item.style.maxHeight = null; // Collapse it
+            item.closest('.faq-item').querySelector('.fas').classList.remove('rotate-180');
           }
         });
 
         // Toggle current FAQ item
-        content.classList.toggle("active");
-        icon.style.transform = content.classList.contains("active")
-          ? "rotate(180deg)"
-          : "rotate(0deg)";
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            icon.classList.remove('rotate-180');
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            icon.classList.add('rotate-180');
+        }
       }
+
+      // Initial setup to ensure all FAQ contents are collapsed on load
+      document.addEventListener('DOMContentLoaded', () => {
+          const faqContents = document.querySelectorAll('.faq-content');
+          faqContents.forEach(content => {
+              content.style.maxHeight = '0'; // Ensure they are collapsed initially
+          });
+      });
+
 
       // Intersection Observer for animations
       const observerOptions = {
@@ -1314,7 +1168,7 @@
             }
           } catch (error) {
             console.error("Error:", error);
-            alert("An unexpected error occurred.");
+            showToast("An unexpected error occurred.", true); // Replaced alert
           }
         });
       });
