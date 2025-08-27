@@ -31,6 +31,9 @@
             background-size: cover;
             background-position: center;
         }
+        .hero-bg-overlay {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.95), rgba(7, 55, 99, 0.95));
+        }
     </style>
     <script>
         tailwind.config = {
@@ -112,7 +115,7 @@
     </header>
 
    <section class="hero-bg relative py-24 text-center text-white overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-t from-black to-blue-900 opacity-75"></div>
+    <div class="absolute inset-0 hero-bg-overlay"></div>
     
     <div class="relative z-10 px-4">
         <h1 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight leading-tight">Study Destinations</h1>
