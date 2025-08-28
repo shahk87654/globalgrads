@@ -1171,6 +1171,208 @@
         </div>
       </div>
     </section>
+<section class="cost-calculator">
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800 animate-fade-in"
+      >
+       Study Abroad
+        <span class="gradient-text"> Estimated Costs </span>
+      </h2>
+    <style>
+      /* Scope everything under .cost-calculator to prevent CSS conflicts */
+      .cost-calculator {
+        font-family: Arial, sans-serif;
+        background: #f9fafb;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .cost-calculator .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        max-width: 1000px;
+        margin: auto;
+      }
+      .cost-calculator .calculator,
+      .cost-calculator .result {
+        flex: 1;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      .cost-calculator h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1d4ed8;
+      }
+      .cost-calculator label {
+        font-weight: bold;
+        margin-top: 10px;
+        display: block;
+      }
+      .cost-calculator select,
+      .cost-calculator input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 6px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+      .cost-calculator button {
+        width: 100%;
+        padding: 12px;
+        background: #1d4ed8;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .cost-calculator button:hover {
+        background: #2563eb;
+      }
+      .cost-calculator .result {
+        display: none;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .cost-calculator .result h3 {
+        text-align: center;
+        color: #16a34a;
+      }
+      .cost-calculator .highlight {
+        font-weight: bold;
+        color: #1d4ed8;
+      }
+      /* Responsive: stack on mobile */
+      @media (max-width: 768px) {
+        .cost-calculator .container {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </div>
+
+  <h2>Study Abroad Cost Calculator</h2>
+
+  <div class="container">
+    <!-- Left: Calculator -->
+    <div class="calculator">
+      <label for="country">Select Destination</label>
+      <select id="country">
+        <option value="">-- Choose Country --</option>
+        <option value="canada">🇨🇦 Canada</option>
+        <option value="usa">🇺🇸 USA</option>
+        <option value="uk">🇬🇧 UK</option>
+        <option value="wales">🏴 Wales</option>
+        <option value="ireland">🇮🇪 Ireland</option>
+        <option value="france">🇫🇷 France</option>
+        <option value="australia">🇦🇺 Australia</option>
+        <option value="europe">🇪🇺 Europe (General)</option>
+      </select>
+
+      <label for="tuition">Annual Tuition Fee</label>
+      <input type="number" id="tuition" placeholder="Leave blank for average">
+
+      <label for="living">Monthly Living Expense</label>
+      <input type="number" id="living" placeholder="Leave blank for average">
+
+      <label for="months">Months of Stay</label>
+      <input type="range" id="months" min="6" max="24" value="12" 
+        oninput="document.getElementById('monthsValue').innerText=this.value">
+      <span id="monthsValue">12</span> months
+
+      <button onclick="calculate()">Calculate Total Cost</button>
+    </div>
+
+    <!-- Right: Result -->
+    <div id="result" class="result">
+      <h3>📊 Estimated Cost Breakdown</h3>
+      <p id="countryName"></p>
+      <p>🎓 Tuition: <span id="tuitionCost" class="highlight"></span></p>
+      <p>🏠 Living: <span id="livingCost" class="highlight"></span></p>
+      <p>📅 Duration: <span id="duration" class="highlight"></span></p>
+      <hr>
+      <p>💰 <b>Total Estimated Cost:</b> <span id="totalCost" class="highlight"></span></p>
+      <button id="convertBtn" onclick="toggleCurrency()">Convert to PKR</button>
+    </div>
+  </div>
+
+  <script>
+    // Average cost data
+    const data = {
+      canada:     { tuition: 22000, living: 2100 },
+      usa:        { tuition: 25000, living: 2000 },
+      uk:         { tuition: 20000, living: 1800 },
+      wales:      { tuition: 19000, living: 1700 },
+      ireland:    { tuition: 17000, living: 1900 },
+      france:     { tuition: 12000, living: 2000 },
+      australia:  { tuition: 35000, living: 2400 },
+      europe:     { tuition: 15000, living: 1800 }
+    };
+
+    let latestCalculation = {};
+    let isUSD = true; // track current currency
+
+    function calculate() {
+      const country = document.getElementById('country').value;
+      if (!country) {
+        alert("Please select a country");
+        return;
+      }
+
+      const tuition = parseFloat(document.getElementById('tuition').value) || data[country].tuition;
+      const living = parseFloat(document.getElementById('living').value) || data[country].living;
+      const months = parseInt(document.getElementById('months').value);
+
+      const livingTotal = living * months;
+      const totalCost = tuition + livingTotal;
+
+      latestCalculation = { tuition, living, months, livingTotal, totalCost };
+
+      isUSD = true; // reset to USD when recalculating
+      updateDisplay();
+
+      document.getElementById('result').style.display = "block";
+    }
+
+    function updateDisplay() {
+      const rate = 280; // conversion rate
+      const { tuition, living, months, livingTotal, totalCost } = latestCalculation;
+
+      if (isUSD) {
+        document.getElementById('tuitionCost').innerText = `$${tuition.toLocaleString()}`;
+        document.getElementById('livingCost').innerText = `$${livingTotal.toLocaleString()} ($${living}/mo)`;
+        document.getElementById('totalCost').innerText = `$${totalCost.toLocaleString()}`;
+        document.getElementById('convertBtn').innerText = "Convert to PKR";
+      } else {
+        document.getElementById('tuitionCost').innerText = `PKR ${(tuition * rate).toLocaleString()}`;
+        document.getElementById('livingCost').innerText = `PKR ${(livingTotal * rate).toLocaleString()} (PKR ${(living * rate).toLocaleString()}/mo)`;
+        document.getElementById('totalCost').innerText = `PKR ${(totalCost * rate).toLocaleString()}`;
+        document.getElementById('convertBtn').innerText = "Convert to USD";
+      }
+
+      document.getElementById('duration').innerText = `${months} months`;
+    }
+
+    function toggleCurrency() {
+      if (!latestCalculation.totalCost) {
+        alert("Please calculate cost first.");
+        return;
+      }
+      isUSD = !isUSD;
+      updateDisplay();
+    }
+  </script>
+</section>
+
 
     <section class="bg-soft-gray py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1587,8 +1789,62 @@
             "destinations-dots",
             destinationsSlidesPerView
           );
+
         }
       });
-    </script>
+      <script>
+  // Exchange rate (example: 1 USD = 278 PKR)
+  const exchangeRate = 278;
+
+  let currentUSD = 0;
+  let inPKR = false;
+
+  function calculate() {
+    const country = document.getElementById('country').value;
+    if (!country) {
+      alert("Please select a country");
+      return;
+    }
+
+    const tuition = parseFloat(document.getElementById('tuition').value) || data[country].tuition;
+    const living = parseFloat(document.getElementById('living').value) || data[country].living;
+    const months = parseInt(document.getElementById('months').value);
+
+    const livingTotal = living * months;
+    const totalCost = tuition + livingTotal;
+
+    currentUSD = totalCost; // store USD value
+    inPKR = false; // reset each time
+
+    // Display results
+    document.getElementById('result').style.display = "block";
+    document.getElementById('countryName').innerText = `📍 Destination: ${country.toUpperCase()}`;
+    document.getElementById('tuitionCost').innerText = `$${tuition.toLocaleString()}`;
+    document.getElementById('livingCost').innerText = `$${livingTotal.toLocaleString()} (${living}/mo)`;
+    document.getElementById('duration').innerText = `${months} months`;
+    document.getElementById('totalCost').innerText = `$${totalCost.toLocaleString()}`;
+    document.getElementById('currencyLabel').innerText = "USD ($)";
+  }
+
+  // Convert button handler
+  document.getElementById('convertBtn').addEventListener('click', function () {
+    if (!currentUSD) return;
+
+    if (!inPKR) {
+      const totalPKR = currentUSD * exchangeRate;
+      document.getElementById('totalCost').innerText = `₨${totalPKR.toLocaleString()}`;
+      document.getElementById('currencyLabel').innerText = "PKR (₨)";
+      inPKR = true;
+      this.innerText = "Convert back to USD";
+    } else {
+      document.getElementById('totalCost').innerText = `$${currentUSD.toLocaleString()}`;
+      document.getElementById('currencyLabel').innerText = "USD ($)";
+      inPKR = false;
+      this.innerText = "Convert to PKR";
+    }
+  });
+</script>
+
+
   </body>
 </html>
