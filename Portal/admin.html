@@ -1,158 +1,83 @@
-<!DOCTYPE html><html lang='en'><head><title>Admin — Globalgrads</title>  <!-- Tailwind & Fonts -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            "primary-blue": "#0b5394",
-            "light-blue": "#4a86e8",
-            "dark-blue": "#073763",
-            "soft-gray": "#f5f7fa",
-            "accent-green": "#28a745",
-            "subtle-gold": "#ffc107"
-          },
-          animation: {
-            "fade-in": "fadeIn 0.8s ease-out",
-            "slide-up": "slideUp 1s ease-out",
-            "bg-pan": "bgPan 10s ease-in-out infinite alternate"
-          },
-          keyframes: {
-            fadeIn: { "0%": { opacity: "0" }, "100%": { opacity: "1" } },
-            slideUp: { "0%": { transform: "translateY(20px)", opacity: "0" }, "100%": { transform: "translateY(0)", opacity: "1" } },
-            bgPan: { "0%": { backgroundPosition: "0% 50%" }, "100%": { backgroundPosition: "100% 50%" } }
-          }
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/common.js"></script>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; }
+      header { display:flex; justify-content:space-between; align-items:center; }
+      button { padding:8px 12px; }
+      table { width:100%; border-collapse: collapse; margin-top: 1rem; }
+      th, td { border: 1px solid #ddd; padding: 8px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Admin Dashboard</h2>
+      <button id="logoutBtn">Sign out</button>
+    </header>
+
+    <div id="gateMsg">Checking admin access…</div>
+
+    <section id="content" style="display:none">
+      <h3>Students</h3>
+      <table id="studentsTable">
+        <thead><tr><th>ID</th><th>Data (json)</th><th>Created</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <script>
+      async function requireAdmin() {
+        const { data: { user } } = await window.supabase.auth.getUser();
+        if (!user) {
+          window.location.href = 'login.html';
+          return;
+        }
+
+        const { data: prof, error } = await window.supabase
+          .from('profiles').select('is_admin').single();
+
+        if (error || !prof?.is_admin) {
+          window.location.href = 'login.html';
+          return;
+        }
+
+        document.getElementById('gateMsg').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      }
+
+      async function loadStudents() {
+        const { data, error } = await window.supabase
+          .from('students')
+          .select('id, data, created_at')
+          .order('created_at', { ascending: false });
+
+        if (error) {
+          console.error(error);
+          return;
+        }
+        const tbody = document.querySelector('#studentsTable tbody');
+        tbody.innerHTML = '';
+        for (const row of data) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${row.id}</td><td><pre>${JSON.stringify(row.data, null, 2)}</pre></td><td>${row.created_at}</td>`;
+          tbody.appendChild(tr);
         }
       }
-    };
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    body{font-family:'Inter',sans-serif}
-    .gradient-text{
-      background: linear-gradient(135deg, #a7d9ff, #e0f2fe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      background-size:200% 200%;
-      animation: shimmer 4s linear infinite;
-    }
-    @keyframes shimmer{
-      0%{background-position:-200% 0}
-      100%{background-position:200% 0}
-    }
-  </style>
-</head><body class='bg-soft-gray text-gray-800'><header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <nav class="flex items-center justify-between h-16">
-      <a href="./index.html" class="text-2xl font-bold text-primary-blue">Global Grads</a>
-      <ul class="hidden md:flex items-center space-x-6 text-sm font-semibold text-gray-700">
-        <li><a class="hover:text-primary-blue" href="./portal.html">Student Portal</a></li>
-        <li><a class="hover:text-primary-blue" href="./admin.html">Admin</a></li>
-        <li><a class="hover:text-primary-blue" href="https://globalgrads.us" target="_blank">Main Site</a></li>
-      </ul>
-      <a href="./portal.html" class="md:hidden inline-flex items-center gap-2 bg-primary-blue text-white px-4 py-2 rounded-full">
-        <i class="fa-solid fa-graduation-cap"></i> Portal
-      </a>
-    </nav>
-  </div>
-</header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="bg-white rounded-2xl shadow-sm border">
-      <div class="p-6 border-b">
-        <h1 class="text-2xl font-extrabold text-gray-900">Admin Dashboard</h1>
-        <p class="text-gray-500 text-sm">Review student info, meetings, messages, and documents.</p>
-      </div>
+      document.getElementById('logoutBtn').addEventListener('click', async () => {
+        await window.supabase.auth.signOut();
+        window.location.href = 'login.html';
+      });
 
-      <section id="adminLogin" class="p-6">
-        <div class="max-w-md space-y-4">
-          <div class="text-sm text-gray-600">Default credentials (change in <code>js/common.js</code>):</div>
-          <div class="bg-yellow-50 border rounded p-3 text-sm">Email: <b>admin@globalgrads.us</b> · Password: <b>admin123</b></div>
-          <form id="formAdminLogin" class="space-y-3">
-            <div><label class="form-label">Email</label><input name="email" class="form-input" placeholder="admin@globalgrads.us" required></div>
-            <div><label class="form-label">Password</label><input name="password" type="password" class="form-input" placeholder="••••••••" required></div>
-            <button class="btn-primary w-full"><i class="fa-solid fa-right-to-bracket mr-2"></i>Login</button>
-          </form>
-        </div>
-      </section>
-
-      <section id="adminApp" class="p-6 hidden">
-        <div class="flex items-center justify-between gap-2 mb-4">
-          <div class="flex items-center gap-2">
-            <span id="adminModeBadge" class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-800">Local mode</span>
-            <button id="btnLogout" class="px-3 py-2 rounded-lg border hover:bg-gray-50"><i class="fa-solid fa-arrow-right-from-bracket mr-1"></i>Logout</button>
-          </div>
-          <div class="flex gap-2">
-            <button id="btnExportAll" class="px-3 py-2 rounded-lg border hover:bg-gray-50"><i class="fa-solid fa-download mr-2"></i>Export All JSON</button>
-            <button id="btnClearAll" class="px-3 py-2 rounded-lg border hover:bg-gray-50"><i class="fa-solid fa-trash mr-2"></i>Clear All (Local)</button>
-          </div>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-6">
-          <div class="bg-soft-gray rounded-lg p-4">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-bold">Student Info</h3>
-              <button data-table="students" class="btnCsv px-2 py-1 text-xs border rounded">Export CSV</button>
-            </div>
-            <div id="tblStudents" class="text-xs overflow-auto max-h-[420px]"></div>
-          </div>
-
-          <div class="bg-soft-gray rounded-lg p-4">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-bold">Meetings</h3>
-              <button data-table="meetings" class="btnCsv px-2 py-1 text-xs border rounded">Export CSV</button>
-            </div>
-            <div id="tblMeetings" class="text-xs overflow-auto max-h-[420px]"></div>
-          </div>
-
-          <div class="bg-soft-gray rounded-lg p-4">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-bold">Contacts</h3>
-              <button data-table="contacts" class="btnCsv px-2 py-1 text-xs border rounded">Export CSV</button>
-            </div>
-            <div id="tblContacts" class="text-xs overflow-auto max-h-[420px]"></div>
-          </div>
-        </div>
-
-        <div class="mt-6">
-          <h3 class="font-bold mb-2">Documents</h3>
-          <div id="tblDocs" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-        </div>
-      </section>
-    </div>
-  </main>
-<footer class="bg-gray-900 text-white py-10 mt-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left grid md:grid-cols-3 gap-8">
-    <div>
-      <div class="text-xl font-bold">Globalgrads</div>
-      <p class="text-gray-400 text-sm mt-2">Your gateway to global education.</p>
-    </div>
-    <div>
-      <div class="text-lg font-semibold mb-2">Quick Links</div>
-      <ul class="text-gray-400 space-y-1">
-        <li><a href="./portal.html" class="hover:text-white">Student Portal</a></li>
-        <li><a href="./admin.html" class="hover:text-white">Admin Dashboard</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="text-lg font-semibold mb-2">Contact</div>
-      <p class="text-gray-400 text-sm">info@globalgrads.us · +92-300-4074318</p>
-    </div>
-  </div>
-  <div class="text-center text-gray-500 text-xs mt-6">&copy; 2025 Globalgrads. All rights reserved.</div>
-</footer>
-
-  <script src="./js/common.js"></script>
-  <script src="./js/admin.js"></script>
-  <style>
-    .form-label{display:block;font-weight:600;margin-bottom:.25rem}
-    .form-input{width:100%;border:1px solid #e5e7eb;border-radius:.5rem;padding:.6rem .8rem;background:#fdfdfd}
-    .btn-primary{background:#0b5394;color:#fff;padding:.6rem 1rem;border-radius:.75rem;font-weight:700}
-  </style>
-</body></html>
+      (async () => {
+        await requireAdmin();
+        await loadStudents();
+      })();
+    </script>
+    
+  </body>
+</html>
