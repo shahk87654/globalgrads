@@ -1548,7 +1548,7 @@
 
         <div class="border-t border-gray-700 mt-8 pt-6 text-center">
           <p class="text-gray-400 text-sm">
-            &copy; 2024 Globalgrads Consulting. All rights reserved.
+            &copy; 2025 Globalgrads By AspirePath Overseas (PVT) Limited. All rights reserved.
           </p>
         </div>
       </div>
@@ -1791,60 +1791,59 @@
           );
 
         }
+
       });
-      <script>
-  // Exchange rate (example: 1 USD = 278 PKR)
-  const exchangeRate = 278;
+    // Exchange rate (example: 1 USD = 278 PKR)
+    const exchangeRate = 278;
 
-  let currentUSD = 0;
-  let inPKR = false;
+    let currentUSD = 0;
+    let inPKR = false;
 
-  function calculate() {
-    const country = document.getElementById('country').value;
-    if (!country) {
-      alert("Please select a country");
-      return;
-    }
+    function calculate() {
+      const country = document.getElementById('country').value;
+      if (!country) {
+        alert("Please select a country");
+        return;
+      }
 
-    const tuition = parseFloat(document.getElementById('tuition').value) || data[country].tuition;
-    const living = parseFloat(document.getElementById('living').value) || data[country].living;
-    const months = parseInt(document.getElementById('months').value);
+      const tuition = parseFloat(document.getElementById('tuition').value) || data[country].tuition;
+      const living = parseFloat(document.getElementById('living').value) || data[country].living;
+      const months = parseInt(document.getElementById('months').value);
 
-    const livingTotal = living * months;
-    const totalCost = tuition + livingTotal;
+      const livingTotal = living * months;
+      const totalCost = tuition + livingTotal;
 
-    currentUSD = totalCost; // store USD value
-    inPKR = false; // reset each time
+      currentUSD = totalCost; // store USD value
+      inPKR = false; // reset each time
 
-    // Display results
-    document.getElementById('result').style.display = "block";
-    document.getElementById('countryName').innerText = `📍 Destination: ${country.toUpperCase()}`;
-    document.getElementById('tuitionCost').innerText = `$${tuition.toLocaleString()}`;
-    document.getElementById('livingCost').innerText = `$${livingTotal.toLocaleString()} (${living}/mo)`;
-    document.getElementById('duration').innerText = `${months} months`;
-    document.getElementById('totalCost').innerText = `$${totalCost.toLocaleString()}`;
-    document.getElementById('currencyLabel').innerText = "USD ($)";
-  }
-
-  // Convert button handler
-  document.getElementById('convertBtn').addEventListener('click', function () {
-    if (!currentUSD) return;
-
-    if (!inPKR) {
-      const totalPKR = currentUSD * exchangeRate;
-      document.getElementById('totalCost').innerText = `₨${totalPKR.toLocaleString()}`;
-      document.getElementById('currencyLabel').innerText = "PKR (₨)";
-      inPKR = true;
-      this.innerText = "Convert back to USD";
-    } else {
-      document.getElementById('totalCost').innerText = `$${currentUSD.toLocaleString()}`;
+      // Display results
+      document.getElementById('result').style.display = "block";
+      document.getElementById('countryName').innerText = `📍 Destination: ${country.toUpperCase()}`;
+      document.getElementById('tuitionCost').innerText = `$${tuition.toLocaleString()}`;
+      document.getElementById('livingCost').innerText = `$${livingTotal.toLocaleString()} (${living}/mo)`;
+      document.getElementById('duration').innerText = `${months} months`;
+      document.getElementById('totalCost').innerText = `$${totalCost.toLocaleString()}`;
       document.getElementById('currencyLabel').innerText = "USD ($)";
-      inPKR = false;
-      this.innerText = "Convert to PKR";
     }
-  });
-</script>
 
+    // Convert button handler
+    document.getElementById('convertBtn').addEventListener('click', function () {
+      if (!currentUSD) return;
+
+      if (!inPKR) {
+        const totalPKR = currentUSD * exchangeRate;
+        document.getElementById('totalCost').innerText = `₨${totalPKR.toLocaleString()}`;
+        document.getElementById('currencyLabel').innerText = "PKR (₨)";
+        inPKR = true;
+        this.innerText = "Convert back to USD";
+      } else {
+        document.getElementById('totalCost').innerText = `$${currentUSD.toLocaleString()}`;
+        document.getElementById('currencyLabel').innerText = "USD ($)";
+        inPKR = false;
+        this.innerText = "Convert to PKR";
+      }
+    });
+  </script>
 
   </body>
 </html>
